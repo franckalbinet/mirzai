@@ -12,9 +12,6 @@ entries:
     - output: web,pdf
       title: mirzai
       url: core.html
-    - output: web,pdf
-      title: Data core
-      url: data.core.html
     output: web
     title: mirzai
   output: web
