@@ -9,10 +9,32 @@ entries:
     - output: web,pdf
       title: Overview
       url: /
-    - output: web,pdf
-      title: mirzai
-      url: core.html
+      subfolders:
+      - output: web
+        subfolderitems:
+        - output: web,pdf
+          title: Loading
+          url: /
+        - output: web,pdf
+          title: Summary
+          url: /
+        - output: web,pdf
+          title: Selection & preprocessing
+          url: /
+        title: Data
     output: web
-    title: mirzai
+    title: Paper reproduced
+  - folderitems:
+    - output: web,pdf
+      title: Loading
+      url: /data.loading.html
+    output: web
+    title: Data
+  - folderitems:
+    - output: web,pdf
+      title: Core
+      url: /
+    output: web
+    title: Vis
   output: web
   title: Sidebar

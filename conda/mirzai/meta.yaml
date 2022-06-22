@@ -1,0 +1,37 @@
+package:
+  name: mirzai
+  version: 0.0.1
+source:
+  sha256: 16d6f7c5792ef5afbd3246b689d93265949380c380021d272002edcbb62cf225
+  url: https://files.pythonhosted.org/packages/c8/4d/ef8300f78ba3918b5a896df8ca58cff5e6b2e0ba04da3b56a93f02564347/mirzai-0.0.1.tar.gz
+about:
+  dev_url: https://franckalbinet.github.io
+  doc_url: https://franckalbinet.github.io
+  home: https://franckalbinet.github.io
+  license: Apache Software
+  license_family: APACHE
+  summary: Prediction of Exchangeable Potassium in Soil through Mid-Infrared and Deep
+    Learning paper code
+build:
+  noarch: python
+  number: '0'
+  script: '{{ PYTHON }} -m pip install . -vv'
+extra:
+  recipe-maintainers:
+  - franckalbinet
+requirements:
+  host:
+  - pip
+  - python
+  - packaging
+  - numpy
+  - fastcore>=1.3.27,<1.5
+  run:
+  - pip
+  - python
+  - packaging
+  - numpy
+  - fastcore>=1.3.27,<1.5
+test:
+  imports:
+  - mirzai

@@ -1,6 +1,18 @@
 {
-  "mirzai": {
+  "Paper reproduced": {
     "Overview": "/",
-    "mirzai": "core.html"
+    "": {
+      "Data": {
+        "Loading": "/",
+        "Summary": "/",
+        "Selection & preprocessing": "/"
+      }
+    }
+  },
+  "Data": {
+    "Loading": "/data.loading.html"
+  },
+  "Vis": {
+    "Core": "/"
   }
 }

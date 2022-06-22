@@ -1,8 +1,6 @@
 # mirzai
-> Reproducible research code for the "Prediction of Exchangeable Potassium in Soil through Mid-Infrared Spectroscopy and Deep Learning: from Prediction to Explainability" paper (ref.)
+> Reproducible research code for: "Prediction of Exchangeable Potassium in Soil through Mid-Infrared Spectroscopy and Deep Learning: from Prediction to Explainability", Albinet et al., 2022
 
-
-This file will become your README and also the index of your documentation.
 
 ## Install
 
@@ -10,26 +8,4 @@ This file will become your README and also the index of your documentation.
 
 ## How to use
 
-Fill me in please! Don't forget code examples:
-
-```python
-say_hello("Franck")
-```
-
-
-
-
-    'Hello Franck!'
-
-
-
-```python
-# load_file()
-```
-
-
-
-
-    array([1, 2, 3])
-
-
+Link to tutorials nbs...
