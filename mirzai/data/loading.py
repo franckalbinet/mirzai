@@ -4,35 +4,24 @@
 from __future__ import annotations
 
 
-__all__ = ['load_file', 'load_data']
+__all__ = ['load_kssl']
 
 # Cell
 #nbdev_comment from __future__ import annotations
+from pathlib import Path
+import pickle
 import numpy as np
+from fastcore.test import *
 
 # Cell
-def load_file(name, path='./data', loader=np.load):
-    """
-    Loads individual data file.
-
-    Args:
-        name: the name of the file
-        path: the path containing data
-        loader: the function used to load. E.g. `np.load` or `pickle.load`
-
-    Returns:
-        data as numpy.ndarray or Dict (when pickle is used)
-    """
-    with open(os.path.join(path, name), 'rb') as f:
-        return loader(f)
-
-# Cell
-def load_data(path):
+def load_kssl(src_dir:str, # folder path containing data
+              fnames:List[str]=['spectra-features.npy', 'spectra-wavenumbers.npy', # filenames to open (in order)
+                                'depth-order.npy', 'target.npy',
+                                'tax-order-lu.pkl', 'spectra-id.npy'],
+             loaders_lut:dict={'.npy': np.load, '.pkl': pickle.load} # loaders lookup table
+             ):
     """
     Function loading USDA KSSL dataset focusing here on Exchangeable Potassium (analyte_id=725).
-
-    Args:
-        path: the folder path containing data
 
     Returns:
         A tuple (X, X_names, depth_order, y, tax) with:
@@ -40,13 +29,9 @@ def load_data(path):
             X_names: spectra wavenumbers (numpy.ndarray)
             depth_order: depth and order of samples (numpy.ndarray)
             y: exchangeable potassium content (numpy.ndarray)
-            tax: look up table order_id -> order_name (Dictionary)
+            tax_lookup: look up table order_id -> order_name (Dictionary)
             X_id: unique id of spectra
     """
-    X = load_file('spectra-features.npy', path)
-    X_names = load_file('spectra-wavenumbers.npy', path)
-    depth_order = load_file('depth-order.npy', path)
-    y = load_file('target.npy', path)
-    tax = load_file('tax-order-lu.pkl', path, loader=pickle.load)
-    X_id = load_file('spectra-id.npy', path)
-    return X, X_names, depth_order, y, tax, X_id
+    fnames = [Path(src_dir)/fname for fname in fnames]
+    loaders = [loaders_lut[fname.suffix] for fname in fnames]
+    return [loader(open(fname, 'rb')) for loader, fname in zip(loaders, fnames)]

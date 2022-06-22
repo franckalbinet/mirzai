@@ -3,8 +3,7 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"say_hello": "00_core.ipynb",
-         "load_file": "01_data.loading.ipynb",
-         "load_data": "01_data.loading.ipynb"}
+         "load_kssl": "01_data.loading.ipynb"}
 
 modules = ["core.py",
            "data/loading.py"]
