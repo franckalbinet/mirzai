@@ -12,7 +12,7 @@ This file will become your README and also the index of your documentation.
 
 Fill me in please! Don't forget code examples:
 
-```
+```python
 say_hello("Franck")
 ```
 
@@ -20,5 +20,16 @@ say_hello("Franck")
 
 
     'Hello Franck!'
+
+
+
+```python
+# load_file()
+```
+
+
+
+
+    array([1, 2, 3])
 
 
