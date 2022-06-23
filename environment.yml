@@ -1,0 +1,14 @@
+name: mirzai
+channels:
+  - conda-forge
+  - fastchan
+  - pytorch
+dependencies:
+  - python=3.8
+  - nbdev
+  - jupyterlab
+  - numpy
+  - scipy
+  - matplotlib=3.5.1
+  - scikit-learn
+  - pytorch

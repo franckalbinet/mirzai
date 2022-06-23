@@ -1,18 +1,14 @@
 {
-  "Paper reproduced": {
-    "Overview": "/",
-    "": {
-      "Data": {
-        "Loading": "/",
-        "Summary": "/",
-        "Selection & preprocessing": "/"
-      }
-    }
+  "Getting started": {
+    "Overview": "/overview.html"
+  },
+  "Paper with code": {
+    "1. Exploratory Data Analysis": "/paper.eda.html"
   },
   "Data": {
     "Loading": "/data.loading.html"
   },
   "Vis": {
-    "Core": "/"
+    "Core": "/vis.core.html"
   }
 }

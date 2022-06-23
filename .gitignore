@@ -23,6 +23,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
+_data/
 build/
 develop-eggs/
 dist/

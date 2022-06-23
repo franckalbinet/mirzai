@@ -3,10 +3,17 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"say_hello": "00_core.ipynb",
-         "load_kssl": "01_data.loading.ipynb"}
+         "load_kssl": "01_data.loading.ipynb",
+         "PRIMARY_COLOR": "03_vis.core.ipynb",
+         "ACCENT_COLOR": "03_vis.core.ipynb",
+         "centimeter": "03_vis.core.ipynb",
+         "plot_spectra": "03_vis.core.ipynb",
+         "get_y_by_order": "03_vis.core.ipynb",
+         "summary_plot": "03_vis.core.ipynb"}
 
 modules = ["core.py",
-           "data/loading.py"]
+           "data/loading.py",
+           "vis/core.py"]
 
 doc_url = "https://franckalbinet.github.io/mirzai/"
 

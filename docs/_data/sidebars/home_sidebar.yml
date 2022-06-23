@@ -8,22 +8,15 @@ entries:
   - folderitems:
     - output: web,pdf
       title: Overview
-      url: /
-      subfolders:
-      - output: web
-        subfolderitems:
-        - output: web,pdf
-          title: Loading
-          url: /
-        - output: web,pdf
-          title: Summary
-          url: /
-        - output: web,pdf
-          title: Selection & preprocessing
-          url: /
-        title: Data
+      url: /overview.html
     output: web
-    title: Paper reproduced
+    title: Getting started
+  - folderitems:
+    - output: web,pdf
+      title: 1. Exploratory Data Analysis
+      url: /paper.eda.html
+    output: web
+    title: Paper with code
   - folderitems:
     - output: web,pdf
       title: Loading
@@ -33,7 +26,7 @@ entries:
   - folderitems:
     - output: web,pdf
       title: Core
-      url: /
+      url: /vis.core.html
     output: web
     title: Vis
   output: web
