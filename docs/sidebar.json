@@ -4,7 +4,7 @@
     "2. Data selection & transformation": "/paper.select_transform.html",
     "": {
       "3. Baseline model (PLSR)": {
-        "3.1 Learning curve": "/",
+        "3.1 Learning curve": "/paper.plsr.learning_curve.html",
         "3.2 Validation curve": "/",
         "3.3 Training & evaluation": "/"
       },
