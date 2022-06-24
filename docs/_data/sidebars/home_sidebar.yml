@@ -7,20 +7,23 @@ entries:
 - folders:
   - folderitems:
     - output: web,pdf
-      title: Overview
-      url: /overview.html
-    output: web
-    title: Getting started
-  - folderitems:
-    - output: web,pdf
       title: 1. Exploratory Data Analysis
       url: /paper.eda.html
+    - output: web,pdf
+      title: 2. Data selection & transformation
+      url: /paper.select_transform.html
     output: web
     title: Paper with code
   - folderitems:
     - output: web,pdf
       title: Loading
       url: /data.loading.html
+    - output: web,pdf
+      title: Selection
+      url: /data.selection.html
+    - output: web,pdf
+      title: Transform
+      url: /data.transform.html
     output: web
     title: Data
   - folderitems:

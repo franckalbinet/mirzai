@@ -1,9 +1,9 @@
 package:
   name: mirzai
-  version: 0.0.2
+  version: 0.0.3
 source:
-  sha256: 9156a804e11c86db81102aaad44fc2cbe8e6838345472a423a276d0e907fecd3
-  url: https://files.pythonhosted.org/packages/66/31/93885daf8ed47dae785093b317fdf867545b4bc7718a90d5b640520a891f/mirzai-0.0.2.tar.gz
+  sha256: 319c0b766edd16300dad76ffad3f6fca580d494096689a7778e01c877818a478
+  url: https://files.pythonhosted.org/packages/cd/c5/912bc5db758c1d8a5ad359159c437b3c6621e1dad5d9125f24f62b58e0e8/mirzai-0.0.3.tar.gz
 about:
   dev_url: https://franckalbinet.github.io
   doc_url: https://franckalbinet.github.io

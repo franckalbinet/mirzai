@@ -9,11 +9,17 @@ index = {"say_hello": "00_core.ipynb",
          "centimeter": "03_vis.core.ipynb",
          "plot_spectra": "03_vis.core.ipynb",
          "get_y_by_order": "03_vis.core.ipynb",
-         "summary_plot": "03_vis.core.ipynb"}
+         "summary_plot": "03_vis.core.ipynb",
+         "select_y": "04_data.selection.ipynb",
+         "select_tax_order": "04_data.selection.ipynb",
+         "select_X": "04_data.selection.ipynb",
+         "log_transform_y": "05_data.transform.ipynb"}
 
 modules = ["core.py",
            "data/loading.py",
-           "vis/core.py"]
+           "vis/core.py",
+           "data/selection.py",
+           "data/transform.py"]
 
 doc_url = "https://franckalbinet.github.io/mirzai/"
 
