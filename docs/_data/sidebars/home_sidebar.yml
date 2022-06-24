@@ -25,6 +25,45 @@ entries:
           title: 3.3 Training & evaluation
           url: /
         title: 3. Baseline model (PLSR)
+      - output: web
+        subfolderitems:
+        - output: web,pdf
+          title: 4.1 Learning curve
+          url: /
+        - output: web,pdf
+          title: 4.2 Validation curve
+          url: /
+        - output: web,pdf
+          title: 4.3 Training & evaluation
+          url: /
+        - output: web,pdf
+          title: 4.4 Overfitting in action
+          url: /
+        title: 4. Convolutional Neural Network (CNN)
+      - output: web
+        subfolderitems:
+        - output: web,pdf
+          title: 5.1 Learning curves
+          url: /
+        - output: web,pdf
+          title: 5.2 Validation curves
+          url: /
+        - output: web,pdf
+          title: 5.3 Observed vs. predicted scatterplots
+          url: /
+        - output: web,pdf
+          title: 5.4 Global vs. local modelling
+          url: /
+        title: 5. PLSR vs. CNN figures
+      - output: web
+        subfolderitems:
+        - output: web,pdf
+          title: 6.1 GradientShap values
+          url: /
+        - output: web,pdf
+          title: 6.2 GradientShap values correlation
+          url: /
+        title: 6. Interpretability
     output: web
     title: Paper with code
   - folderitems:
@@ -49,6 +88,12 @@ entries:
     - output: web,pdf
       title: Metrics
       url: /training.metrics.html
+    - output: web,pdf
+      title: PLSR
+      url: /
+    - output: web,pdf
+      title: CNN
+      url: /
     output: web
     title: Training
   output: web

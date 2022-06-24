@@ -7,6 +7,22 @@
         "3.1 Learning curve": "/",
         "3.2 Validation curve": "/",
         "3.3 Training & evaluation": "/"
+      },
+      "4. Convolutional Neural Network (CNN)": {
+        "4.1 Learning curve": "/",
+        "4.2 Validation curve": "/",
+        "4.3 Training & evaluation": "/",
+        "4.4 Overfitting in action": "/"
+      },
+      "5. PLSR vs. CNN figures": {
+        "5.1 Learning curves": "/",
+        "5.2 Validation curves": "/",
+        "5.3 Observed vs. predicted scatterplots": "/",
+        "5.4 Global vs. local modelling": "/"
+      },
+      "6. Interpretability": {
+        "6.1 GradientShap values": "/",
+        "6.2 GradientShap values correlation": "/"
       }
     }
   },
@@ -19,6 +35,8 @@
     "Core": "/vis.core.html"
   },
   "Training": {
-    "Metrics": "/training.metrics.html"
+    "Metrics": "/training.metrics.html",
+    "PLSR": "/",
+    "CNN": "/"
   }
 }
