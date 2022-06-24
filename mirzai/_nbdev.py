@@ -13,13 +13,24 @@ index = {"say_hello": "00_core.ipynb",
          "select_y": "04_data.selection.ipynb",
          "select_tax_order": "04_data.selection.ipynb",
          "select_X": "04_data.selection.ipynb",
-         "log_transform_y": "05_data.transform.ipynb"}
+         "log_transform_y": "05_data.transform.ipynb",
+         "CO2_REGION": "05_data.transform.ipynb",
+         "TakeDerivative": "05_data.transform.ipynb",
+         "SNV": "05_data.transform.ipynb",
+         "DropSpectralRegions": "05_data.transform.ipynb",
+         "rpd": "07_training.metrics.ipynb",
+         "rpiq": "07_training.metrics.ipynb",
+         "stb": "07_training.metrics.ipynb",
+         "mape": "07_training.metrics.ipynb",
+         "lccc": "07_training.metrics.ipynb",
+         "eval_reg": "07_training.metrics.ipynb"}
 
 modules = ["core.py",
            "data/loading.py",
            "vis/core.py",
            "data/selection.py",
-           "data/transform.py"]
+           "data/transform.py",
+           "training/metrics.py"]
 
 doc_url = "https://franckalbinet.github.io/mirzai/"
 

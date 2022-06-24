@@ -12,6 +12,19 @@ entries:
     - output: web,pdf
       title: 2. Data selection & transformation
       url: /paper.select_transform.html
+      subfolders:
+      - output: web
+        subfolderitems:
+        - output: web,pdf
+          title: 3.1 Learning curve
+          url: /
+        - output: web,pdf
+          title: 3.2 Validation curve
+          url: /
+        - output: web,pdf
+          title: 3.3 Training & evaluation
+          url: /
+        title: 3. Baseline model (PLSR)
     output: web
     title: Paper with code
   - folderitems:
@@ -32,5 +45,11 @@ entries:
       url: /vis.core.html
     output: web
     title: Vis
+  - folderitems:
+    - output: web,pdf
+      title: Metrics
+      url: /training.metrics.html
+    output: web
+    title: Training
   output: web
   title: Sidebar

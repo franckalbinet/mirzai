@@ -1,7 +1,14 @@
 {
   "Paper with code": {
     "1. Exploratory Data Analysis": "/paper.eda.html",
-    "2. Data selection & transformation": "/paper.select_transform.html"
+    "2. Data selection & transformation": "/paper.select_transform.html",
+    "": {
+      "3. Baseline model (PLSR)": {
+        "3.1 Learning curve": "/",
+        "3.2 Validation curve": "/",
+        "3.3 Training & evaluation": "/"
+      }
+    }
   },
   "Data": {
     "Loading": "/data.loading.html",
@@ -10,5 +17,8 @@
   },
   "Vis": {
     "Core": "/vis.core.html"
+  },
+  "Training": {
+    "Metrics": "/training.metrics.html"
   }
 }
