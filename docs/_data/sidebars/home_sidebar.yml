@@ -20,7 +20,7 @@ entries:
           url: /paper.plsr.learning_curve.html
         - output: web,pdf
           title: 3.2 Validation curve
-          url: placeholder.html/
+          url: paper.plsr.validation_curve.html/
         - output: web,pdf
           title: 3.3 Training & evaluation
           url: placeholder.html/
@@ -90,11 +90,11 @@ entries:
       url: /training.metrics.html
     - output: web,pdf
       title: PLSR
-      url: /
+      url: /training.plsr.html/
     - output: web,pdf
       title: CNN
-      url: /
+      url: placeholder.html/
     output: web
-    title: Training
+    title: Train & eval
   output: web
   title: Sidebar

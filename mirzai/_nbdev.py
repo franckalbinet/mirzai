@@ -23,14 +23,16 @@ index = {"say_hello": "00_core.ipynb",
          "stb": "07_training.metrics.ipynb",
          "mape": "07_training.metrics.ipynb",
          "lccc": "07_training.metrics.ipynb",
-         "eval_reg": "07_training.metrics.ipynb"}
+         "eval_reg": "07_training.metrics.ipynb",
+         "compute_valid_curve": "10_training.plsr.ipynb"}
 
 modules = ["core.py",
            "data/loading.py",
            "vis/core.py",
            "data/selection.py",
            "data/transform.py",
-           "training/metrics.py"]
+           "training/metrics.py",
+           "training/plsr.py"]
 
 doc_url = "https://franckalbinet.github.io/mirzai/"
 
