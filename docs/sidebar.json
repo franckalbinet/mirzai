@@ -6,7 +6,7 @@
       "3. Baseline model (PLSR)": {
         "3.1 Learning curve": "/paper.plsr.learning_curve.html",
         "3.2 Validation curve": "/paper.plsr.validation_curve.html",
-        "3.3 Training & evaluation": "/placeholder.html"
+        "3.3 Training & evaluation": "/paper.plsr.train_eval.html"
       },
       "4. Convolutional Neural Network (CNN)": {
         "4.1 Learning curve": "/placeholder.html",

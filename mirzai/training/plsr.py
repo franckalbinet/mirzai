@@ -4,7 +4,7 @@
 from __future__ import annotations
 
 
-__all__ = ['compute_valid_curve']
+__all__ = ['compute_valid_curve', 'PLS_model', 'Evaluator']
 
 # Cell
 #nbdev_comment from __future__ import annotations
@@ -66,3 +66,84 @@ def compute_valid_curve(X:np.ndarray, # Spectra with shape (n_samples, n_wavenum
         history['valid_score'].append(valid_score)
 
     return history
+
+# Cell
+class PLS_model():
+    "Partial Least Squares model runner"
+    def __init__(self, n_components):
+        self.n_components = n_components
+        self.model = None
+
+    def fit(self, data):
+        X, y = data
+        self.model = Pipeline([('snv', SNV()),
+                         ('derivative', TakeDerivative()),
+                         ('dropper', DropSpectralRegions(X_names, regions=CO2_REGION)),
+                         ('model', PLSRegression(n_components=self.n_components))])
+        self.model.fit(X, y)
+        return self
+
+    def predict(self, data):
+        X, y = data
+        return self.model.predict(X)
+
+    def eval(self, data, is_log=True):
+        X, y = data
+        return eval_reg(y, self.model.predict(X))
+
+# Cell
+class Evaluator():
+    def __init__(self, data, depth_order,
+                 seeds=range(20), n_components=10, split_ratio=0.1):
+        self.seeds = seeds
+        self.X, self.y = data
+        self.depth_order = depth_order
+        self.split_ratio = split_ratio
+        self.n_components = n_components
+
+        self.models = []
+        self.perfs = OrderedDict({'train': [], 'test': []})
+
+    def train_multiple(self):
+        for seed in tqdm(self.seeds):
+            X_train, X_test, y_train, y_test, depth_order_train, depth_order_test = self._splitter(seed)
+            model = PLS_model(self.n_components)
+            model.fit((X_train, y_train))
+            self.models.append(model)
+
+    def eval_on_train(self, reducer):
+        perfs = []
+        for i, seed in enumerate(self.seeds):
+            X_train, X_test, y_train, y_test, _, _ = self._splitter(seed)
+            perf = self.models[i].eval((X_train, y_train))
+            perf['n'] = len(X_train)
+            perfs.append(perf)
+        if reducer:
+            perfs = self.reduce(perfs, reducer)
+        return perfs
+
+    def eval_on_test(self, order=-1, reducer=None):
+        perfs = []
+        for i, seed in enumerate(self.seeds):
+            X_train, X_test, y_train, y_test, depth_order_train, depth_order_test = self._splitter(seed)
+            if order != - 1:
+                mask = depth_order_test[:, 1] == order
+                X_test, y_test = X_test[mask, :], y_test[mask]
+            perf = self.models[i].eval((X_test, y_test))
+            perf['n'] = len(X_test)
+            perfs.append(perf)
+        if reducer:
+            perfs = self.reduce(perfs, reducer)
+        return perfs
+
+    def _splitter(self, seed):
+        return train_test_split(self.X, self.y, self.depth_order,
+                                test_size=self.split_ratio,
+                                random_state=seed)
+
+    def reduce(self, perfs, fn=np.mean):
+        results = {}
+        for metric in perfs[0].keys():
+            result = fn(np.array([perf[metric] for perf in perfs]))
+            results[metric] = result
+        return results

@@ -24,7 +24,9 @@ index = {"say_hello": "00_core.ipynb",
          "mape": "07_training.metrics.ipynb",
          "lccc": "07_training.metrics.ipynb",
          "eval_reg": "07_training.metrics.ipynb",
-         "compute_valid_curve": "10_training.plsr.ipynb"}
+         "compute_valid_curve": "10_training.plsr.ipynb",
+         "PLS_model": "10_training.plsr.ipynb",
+         "Evaluator": "10_training.plsr.ipynb"}
 
 modules = ["core.py",
            "data/loading.py",

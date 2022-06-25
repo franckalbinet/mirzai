@@ -23,7 +23,7 @@ entries:
           url: /paper.plsr.validation_curve.html
         - output: web,pdf
           title: 3.3 Training & evaluation
-          url: /placeholder.html
+          url: /paper.plsr.train_eval.html
         title: 3. Baseline model (PLSR)
       - output: web
         subfolderitems:
