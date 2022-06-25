@@ -20,49 +20,49 @@ entries:
           url: /paper.plsr.learning_curve.html
         - output: web,pdf
           title: 3.2 Validation curve
-          url: /paper.plsr.validation_curve.html/
+          url: /paper.plsr.validation_curve.html
         - output: web,pdf
           title: 3.3 Training & evaluation
-          url: /placeholder.html/
+          url: /placeholder.html
         title: 3. Baseline model (PLSR)
       - output: web
         subfolderitems:
         - output: web,pdf
           title: 4.1 Learning curve
-          url: /placeholder.html/
+          url: /placeholder.html
         - output: web,pdf
           title: 4.2 Validation curve
-          url: /placeholder.html/
+          url: /placeholder.html
         - output: web,pdf
           title: 4.3 Training & evaluation
-          url: /placeholder.html/
+          url: /placeholder.html
         - output: web,pdf
           title: 4.4 Overfitting in action
-          url: /placeholder.html/
+          url: /placeholder.html
         title: 4. Convolutional Neural Network (CNN)
       - output: web
         subfolderitems:
         - output: web,pdf
           title: 5.1 Learning curves
-          url: /placeholder.html/
+          url: /placeholder.html
         - output: web,pdf
           title: 5.2 Validation curves
-          url: /placeholder.html/
+          url: /placeholder.html
         - output: web,pdf
           title: 5.3 Observed vs. predicted scatterplots
-          url: /placeholder.html/
+          url: /placeholder.html
         - output: web,pdf
           title: 5.4 Global vs. local modelling
-          url: /placeholder.html/
+          url: /placeholder.html
         title: 5. PLSR vs. CNN figures
       - output: web
         subfolderitems:
         - output: web,pdf
           title: 6.1 GradientShap values
-          url: /placeholder.html/
+          url: /placeholder.html
         - output: web,pdf
           title: 6.2 GradientShap values correlation
-          url: /placeholder.html/
+          url: /placeholder.html
         title: 6. Interpretability
     output: web
     title: Paper with code
@@ -90,10 +90,10 @@ entries:
       url: /training.metrics.html
     - output: web,pdf
       title: PLSR
-      url: /training.plsr.html/
+      url: /training.plsr.html
     - output: web,pdf
       title: CNN
-      url: placeholder.html/
+      url: placeholder.html
     output: web
     title: Train & eval
   output: web

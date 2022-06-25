@@ -5,24 +5,24 @@
     "": {
       "3. Baseline model (PLSR)": {
         "3.1 Learning curve": "/paper.plsr.learning_curve.html",
-        "3.2 Validation curve": "/paper.plsr.validation_curve.html/",
-        "3.3 Training & evaluation": "/placeholder.html/"
+        "3.2 Validation curve": "/paper.plsr.validation_curve.html",
+        "3.3 Training & evaluation": "/placeholder.html"
       },
       "4. Convolutional Neural Network (CNN)": {
-        "4.1 Learning curve": "/placeholder.html/",
-        "4.2 Validation curve": "/placeholder.html/",
-        "4.3 Training & evaluation": "/placeholder.html/",
-        "4.4 Overfitting in action": "/placeholder.html/"
+        "4.1 Learning curve": "/placeholder.html",
+        "4.2 Validation curve": "/placeholder.html",
+        "4.3 Training & evaluation": "/placeholder.html",
+        "4.4 Overfitting in action": "/placeholder.html"
       },
       "5. PLSR vs. CNN figures": {
-        "5.1 Learning curves": "/placeholder.html/",
-        "5.2 Validation curves": "/placeholder.html/",
-        "5.3 Observed vs. predicted scatterplots": "/placeholder.html/",
-        "5.4 Global vs. local modelling": "/placeholder.html/"
+        "5.1 Learning curves": "/placeholder.html",
+        "5.2 Validation curves": "/placeholder.html",
+        "5.3 Observed vs. predicted scatterplots": "/placeholder.html",
+        "5.4 Global vs. local modelling": "/placeholder.html"
       },
       "6. Interpretability": {
-        "6.1 GradientShap values": "/placeholder.html/",
-        "6.2 GradientShap values correlation": "/placeholder.html/"
+        "6.1 GradientShap values": "/placeholder.html",
+        "6.2 GradientShap values correlation": "/placeholder.html"
       }
     }
   },
@@ -36,7 +36,7 @@
   },
   "Train & eval": {
     "Metrics": "/training.metrics.html",
-    "PLSR": "/training.plsr.html/",
-    "CNN": "placeholder.html/"
+    "PLSR": "/training.plsr.html",
+    "CNN": "placeholder.html"
   }
 }
