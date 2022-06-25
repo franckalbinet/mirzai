@@ -20,49 +20,49 @@ entries:
           url: /paper.plsr.learning_curve.html
         - output: web,pdf
           title: 3.2 Validation curve
-          url: /
+          url: placeholder.html/
         - output: web,pdf
           title: 3.3 Training & evaluation
-          url: /
+          url: placeholder.html/
         title: 3. Baseline model (PLSR)
       - output: web
         subfolderitems:
         - output: web,pdf
           title: 4.1 Learning curve
-          url: /
+          url: placeholder.html/
         - output: web,pdf
           title: 4.2 Validation curve
-          url: /
+          url: placeholder.html/
         - output: web,pdf
           title: 4.3 Training & evaluation
-          url: /
+          url: placeholder.html/
         - output: web,pdf
           title: 4.4 Overfitting in action
-          url: /
+          url: placeholder.html/
         title: 4. Convolutional Neural Network (CNN)
       - output: web
         subfolderitems:
         - output: web,pdf
           title: 5.1 Learning curves
-          url: /
+          url: placeholder.html/
         - output: web,pdf
           title: 5.2 Validation curves
-          url: /
+          url: placeholder.html/
         - output: web,pdf
           title: 5.3 Observed vs. predicted scatterplots
-          url: /
+          url: placeholder.html/
         - output: web,pdf
           title: 5.4 Global vs. local modelling
-          url: /
+          url: placeholder.html/
         title: 5. PLSR vs. CNN figures
       - output: web
         subfolderitems:
         - output: web,pdf
           title: 6.1 GradientShap values
-          url: /
+          url: placeholder.html/
         - output: web,pdf
           title: 6.2 GradientShap values correlation
-          url: /
+          url: placeholder.html/
         title: 6. Interpretability
     output: web
     title: Paper with code

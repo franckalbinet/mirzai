@@ -6,8 +6,8 @@ title: 3.1. Learning Curve (PLSR)
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "Model performance as the number of training samples increases"
-description: "Model performance as the number of training samples increases"
+summary: "Computing the learning curves and model performance of PLSR for the prediction of exchangeable potassium (K ex.), with increasing number of training examples and using all Soil Taxonomy Orders. "
+description: "Computing the learning curves and model performance of PLSR for the prediction of exchangeable potassium (K ex.), with increasing number of training examples and using all Soil Taxonomy Orders. "
 nb_path: "nbs/08_paper.plsr.learning_curve.ipynb"
 ---
 <!--
@@ -29,6 +29,13 @@ nb_path: "nbs/08_paper.plsr.learning_curve.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In our experiment, the model was given the objective to achieve a Mean Squared Error (MSE) of <code>10-2</code> on the training set and was free to scale up its capacity to do so, regardless of the risk of overfitting.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -185,8 +192,15 @@ Taxonomic order lookup:
 <span class="c1"># Dataset subset sizes</span>
 <span class="n">training_size</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2500</span><span class="p">,</span> <span class="mi">5000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">,</span> <span class="mi">30000</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 
-<span class="c1"># Mean Square Error to target</span>
-<span class="n">target_mse</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">target_mse</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># Mean Square Error to target</span>
+
+<span class="c1"># Define PLSR components range according to dataset size</span>
+<span class="n">ranger</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&lt;</span> <span class="mi">2500</span> <span class="k">else</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">1600</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="n">early_stop</span> <span class="o">=</span> <span class="mf">1e-4</span> <span class="c1"># When no further improvement of training MSE threshold</span>
+
+<span class="n">random_seed</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="c1"># 20% kept as validation set</span>
 </pre></div>
 
     </div>
@@ -216,15 +230,10 @@ Taxonomic order lookup:
     <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">size</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">X_train</span><span class="p">,</span> <span class="n">X_valid</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_valid</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:],</span> 
                                                           <span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> 
-                                                          <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> 
-                                                          <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+                                                          <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span> 
+                                                          <span class="n">random_state</span><span class="o">=</span><span class="n">random_seed</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="mi">2500</span><span class="p">:</span>
-        <span class="n">pls_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">pls_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">1600</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-
-    <span class="n">early_stop</span> <span class="o">=</span> <span class="mf">1e-4</span>
+    <span class="n">pls_range</span> <span class="o">=</span> <span class="n">ranger</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
     <span class="n">last_score</span> <span class="o">=</span> <span class="mi">999</span>
 
     <span class="k">for</span> <span class="n">cpts</span> <span class="ow">in</span> <span class="n">pls_range</span><span class="p">:</span>
@@ -273,216 +282,208 @@ Taxonomic order lookup:
 <pre>----------------------------------------------------------------------------------------------------
 # of samples: 100
 # of pls cpts:  2
-Train score:  0.09641579424646127
-Last progress:  998.9035842057535
+Train score:  0.12374779826661646
+Last progress:  998.8762522017333
 # of pls cpts:  12
-Train score:  0.01671707520272305
-Last progress:  0.07969871904373821
+Train score:  0.025001159515724118
+Last progress:  0.09874663875089235
 # of pls cpts:  22
-Train score:  0.003427171916079294
-Last progress:  0.013289903286643758
+Train score:  0.005237744236828559
+Last progress:  0.01976341527889556
 Reached the target!
-Valid_score:  0.11168991750611439
+Valid_score:  0.19359226189297302
 ----------------------------------------------------------------------------------------------------
 # of samples: 500
 # of pls cpts:  2
-Train score:  0.09198502650154534
-Last progress:  998.9080149734984
+Train score:  0.09366431779020098
+Last progress:  998.9063356822098
 # of pls cpts:  12
-Train score:  0.05148709687211881
-Last progress:  0.040497929629426534
+Train score:  0.04830604892354282
+Last progress:  0.04535826886665816
 # of pls cpts:  22
-Train score:  0.03592833155644815
-Last progress:  0.015558765315670658
+Train score:  0.034660901361959345
+Last progress:  0.013645147561583477
 # of pls cpts:  32
-Train score:  0.0264604941740063
-Last progress:  0.009467837382441852
+Train score:  0.025297937205260187
+Last progress:  0.009362964156699159
 # of pls cpts:  42
-Train score:  0.020383778145009517
-Last progress:  0.0060767160289967835
+Train score:  0.019601970088354553
+Last progress:  0.005695967116905634
 # of pls cpts:  52
-Train score:  0.016757436588363803
-Last progress:  0.003626341556645714
+Train score:  0.014967747853293942
+Last progress:  0.00463422223506061
 # of pls cpts:  62
-Train score:  0.013472180153175403
-Last progress:  0.0032852564351883995
+Train score:  0.012218328363672681
+Last progress:  0.0027494194896212614
 # of pls cpts:  72
-Train score:  0.010958694755781088
-Last progress:  0.0025134853973943147
+Train score:  0.010009014759468124
+Last progress:  0.002209313604204557
 # of pls cpts:  82
-Train score:  0.009069695499256281
-Last progress:  0.0018889992565248072
+Train score:  0.007982442930478945
+Last progress:  0.002026571828989179
 Reached the target!
-Valid_score:  0.1612887020151171
+Valid_score:  1.1845514568049416
 ----------------------------------------------------------------------------------------------------
 # of samples: 1000
 # of pls cpts:  2
-Train score:  0.0925893586713995
-Last progress:  998.9074106413286
+Train score:  0.09611843516437787
+Last progress:  998.9038815648356
 # of pls cpts:  12
-Train score:  0.05632231644597932
-Last progress:  0.03626704222542018
+Train score:  0.0588919025179766
+Last progress:  0.03722653264640127
 # of pls cpts:  22
-Train score:  0.04363797588043619
-Last progress:  0.012684340565543128
+Train score:  0.045125621176637515
+Last progress:  0.013766281341339087
 # of pls cpts:  32
-Train score:  0.03846893308690715
-Last progress:  0.00516904279352904
+Train score:  0.037892365740398046
+Last progress:  0.007233255436239469
 # of pls cpts:  42
-Train score:  0.034733143568412984
-Last progress:  0.0037357895184941675
+Train score:  0.033514949441770414
+Last progress:  0.004377416298627632
 # of pls cpts:  52
-Train score:  0.031995979807606316
-Last progress:  0.0027371637608066685
+Train score:  0.030398247539272307
+Last progress:  0.003116701902498107
 # of pls cpts:  62
-Train score:  0.029829485435531215
-Last progress:  0.0021664943720751013
+Train score:  0.02778705188648163
+Last progress:  0.002611195652790676
 # of pls cpts:  72
-Train score:  0.027877730576998033
-Last progress:  0.001951754858533182
+Train score:  0.02592059538599048
+Last progress:  0.001866456500491151
 # of pls cpts:  82
-Train score:  0.02622961956347055
-Last progress:  0.001648111013527482
+Train score:  0.02413183293279369
+Last progress:  0.0017887624531967919
 # of pls cpts:  92
-Train score:  0.02448547448609617
-Last progress:  0.0017441450773743802
+Train score:  0.022229253749945457
+Last progress:  0.001902579182848231
 # of pls cpts:  102
-Train score:  0.02290758990884228
-Last progress:  0.0015778845772538887
+Train score:  0.020935498392197643
+Last progress:  0.0012937553577478146
 # of pls cpts:  112
-Train score:  0.021341422903849893
-Last progress:  0.0015661670049923887
+Train score:  0.01962667931719067
+Last progress:  0.0013088190750069721
 # of pls cpts:  122
-Train score:  0.019444250125842773
-Last progress:  0.0018971727780071196
+Train score:  0.018212033453477453
+Last progress:  0.001414645863713218
 # of pls cpts:  132
-Train score:  0.01779183922570555
-Last progress:  0.0016524109001372252
+Train score:  0.01679378314172773
+Last progress:  0.0014182503117497226
 # of pls cpts:  142
-Train score:  0.016248560733453196
-Last progress:  0.001543278492252352
+Train score:  0.015177792666625924
+Last progress:  0.0016159904751018063
 # of pls cpts:  152
-Train score:  0.014566858844349932
-Last progress:  0.001681701889103264
+Train score:  0.013529224840124279
+Last progress:  0.001648567826501645
 # of pls cpts:  162
-Train score:  0.012702724409906043
-Last progress:  0.0018641344344438888
+Train score:  0.01192685236516864
+Last progress:  0.0016023724749556385
 # of pls cpts:  172
-Train score:  0.011194836997888234
-Last progress:  0.00150788741201781
+Train score:  0.010771795325505656
+Last progress:  0.001155057039662984
 # of pls cpts:  182
-Train score:  0.009803474499105387
-Last progress:  0.0013913624987828468
+Train score:  0.00967137512874713
+Last progress:  0.0011004201967585257
 Reached the target!
-Valid_score:  0.27963823335459886
+Valid_score:  0.16848993319923833
 ----------------------------------------------------------------------------------------------------
 # of samples: 2500
 # of pls cpts:  200
-Train score:  0.026889353924129788
-Last progress:  998.9731106460758
+Train score:  0.025756679430942706
+Last progress:  998.974243320569
 # of pls cpts:  400
-Train score:  0.013464885482028599
-Last progress:  0.01342446844210119
+Train score:  0.01371513568461394
+Last progress:  0.012041543746328766
 # of pls cpts:  600
-Train score:  0.008935284653076131
-Last progress:  0.004529600828952467
+Train score:  0.008611339164509662
+Last progress:  0.005103796520104278
 Reached the target!
-Valid_score:  0.794765574165875
+Valid_score:  0.5662879517149223
 ----------------------------------------------------------------------------------------------------
 # of samples: 5000
 # of pls cpts:  200
-Train score:  0.036400950761493744
-Last progress:  998.9635990492385
+Train score:  0.03614962675312069
+Last progress:  998.9638503732468
 # of pls cpts:  400
-Train score:  0.027972255200488533
-Last progress:  0.008428695561005211
+Train score:  0.0285627375886878
+Last progress:  0.007586889164432887
 # of pls cpts:  600
-Train score:  0.02534736930215862
-Last progress:  0.0026248858983299143
+Train score:  0.026201409738670564
+Last progress:  0.002361327850017237
 # of pls cpts:  800
-Train score:  0.024867312200905836
-Last progress:  0.00048005710125278295
+Train score:  0.025807050777622586
+Last progress:  0.0003943589610479782
 # of pls cpts:  1000
-Train score:  0.024722435891874346
-Last progress:  0.00014487630903149001
+Train score:  0.02566952316525888
+Last progress:  0.00013752761236370675
 # of pls cpts:  1200
-Train score:  0.024634238686205786
-Last progress:  8.819720566856024e-05
+Train score:  0.0256267190732136
+Last progress:  4.28040920452781e-05
 Early stopping!
-Valid_score:  0.1048336590023125
+Valid_score:  0.13287065198928144
 ----------------------------------------------------------------------------------------------------
 # of samples: 10000
 # of pls cpts:  200
-Train score:  0.04145378591922343
-Last progress:  998.9585462140808
+Train score:  0.04074357640304935
+Last progress:  998.9592564235969
 # of pls cpts:  400
-Train score:  0.036726267575686505
-Last progress:  0.004727518343536928
+Train score:  0.03658997950584585
+Last progress:  0.0041535968972034945
 # of pls cpts:  600
-Train score:  0.035524730651659515
-Last progress:  0.00120153692402699
+Train score:  0.03536284576730283
+Last progress:  0.0012271337385430237
 # of pls cpts:  800
-Train score:  0.03525051763810697
-Last progress:  0.00027421301355254335
+Train score:  0.03514333943097561
+Last progress:  0.00021950633632721733
 # of pls cpts:  1000
-Train score:  0.03516995644459347
-Last progress:  8.056119351350366e-05
+Train score:  0.03508842716175974
+Last progress:  5.491226921586906e-05
 Early stopping!
-Valid_score:  0.07099701898458478
+Valid_score:  0.06749366179816678
 ----------------------------------------------------------------------------------------------------
 # of samples: 20000
 # of pls cpts:  200
-Train score:  0.04401995114545288
-Last progress:  998.9559800488546
+Train score:  0.04405985744469531
+Last progress:  998.9559401425553
 # of pls cpts:  400
-Train score:  0.04127562111629961
-Last progress:  0.0027443300291532732
+Train score:  0.04172294935808956
+Last progress:  0.002336908086605749
 # of pls cpts:  600
-Train score:  0.0404768862334856
-Last progress:  0.0007987348828140048
+Train score:  0.04099015804251897
+Last progress:  0.000732791315570587
 # of pls cpts:  800
-Train score:  0.040353529373621924
-Last progress:  0.00012335685986367834
+Train score:  0.040870736409031855
+Last progress:  0.00011942163348711843
 # of pls cpts:  1000
-Train score:  0.040309751920452844
-Last progress:  4.377745316908044e-05
+Train score:  0.04083761334902593
+Last progress:  3.3123060005926797e-05
 Early stopping!
-Valid_score:  0.05626731509298264
+Valid_score:  0.056483929160218944
 ----------------------------------------------------------------------------------------------------
 # of samples: 30000
 # of pls cpts:  200
-Train score:  0.045190023201983356
-Last progress:  998.9548099767981
+Train score:  0.04570455353558519
+Last progress:  998.9542954464645
 # of pls cpts:  400
-Train score:  0.043399285547069205
-Last progress:  0.0017907376549141513
+Train score:  0.04372744763811253
+Last progress:  0.0019771058974726585
 # of pls cpts:  600
-Train score:  0.04286977470072616
-Last progress:  0.0005295108463430481
+Train score:  0.04323810715110324
+Last progress:  0.0004893404870092918
 # of pls cpts:  800
-Train score:  0.04276577628763454
-Last progress:  0.00010399841309161745
+Train score:  0.04313354688169872
+Last progress:  0.00010456026940451613
 # of pls cpts:  1000
-Train score:  0.04274447657624264
-Last progress:  2.129971139189918e-05
+Train score:  0.04310286510589511
+Last progress:  3.0681775803613476e-05
 Early stopping!
-Valid_score:  0.052457980900013336
+Valid_score:  0.055202109002261156
 ----------------------------------------------------------------------------------------------------
 # of samples: 40132
 # of pls cpts:  200
-Train score:  0.0457874124720857
-Last progress:  998.9542125875279
+Train score:  0.045658440112384645
+Last progress:  998.9543415598877
 # of pls cpts:  400
-Train score:  0.04417644618651756
-Last progress:  0.001610966285568144
-# of pls cpts:  600
-Train score:  0.04375134488676108
-Last progress:  0.0004251012997564807
-# of pls cpts:  800
-Train score:  0.04367581632626766
-Last progress:  7.552856049342083e-05
-Early stopping!
-Valid_score:  0.05026654829079062
+Train score:  0.04406414118839038
+Last progress:  0.001594298923994264
 </pre>
 </div>
 </div>
