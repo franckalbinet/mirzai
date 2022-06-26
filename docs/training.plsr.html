@@ -36,6 +36,12 @@ nb_path: "nbs/10_training.plsr.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Validation-curve">Validation curve<a class="anchor-link" href="#Validation-curve"> </a></h2>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -47,7 +53,7 @@ nb_path: "nbs/10_training.plsr.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="compute_valid_curve" class="doc_header"><code>compute_valid_curve</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/plsr.py#L33" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>compute_valid_curve</code>(<strong><code>X</code></strong>:<code>np.ndarray</code>, <strong><code>y</code></strong>:<code>np.ndarray</code>, <strong><code>X_names</code></strong>:<code>np.ndarray</code>, <strong><code>mask</code></strong>:<code>np.ndarray</code>=<em><code>None</code></em>, <strong><code>pls_components</code></strong>:<code>list</code>=<em><code>range(5, 120, 5)</code></em>, <strong><code>seeds</code></strong>:<code>list</code>=<em><code>range(0, 20)</code></em>, <strong><code>test_size</code></strong>:<code>float</code>=<em><code>0.1</code></em>)</p>
+<h4 id="compute_valid_curve" class="doc_header"><code>compute_valid_curve</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/plsr.py#L34" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>compute_valid_curve</code>(<strong><code>X</code></strong>:<code>np.ndarray</code>, <strong><code>y</code></strong>:<code>np.ndarray</code>, <strong><code>X_names</code></strong>:<code>np.ndarray</code>, <strong><code>mask</code></strong>:<code>np.ndarray</code>=<em><code>None</code></em>, <strong><code>pls_components</code></strong>:<code>list</code>=<em><code>range(5, 120, 5)</code></em>, <strong><code>seeds</code></strong>:<code>list</code>=<em><code>range(0, 20)</code></em>, <strong><code>test_size</code></strong>:<code>float</code>=<em><code>0.1</code></em>)</p>
 </blockquote>
 <p>Train the PLSR model on training &amp; evaluate it on the valid set as # pls components increases</p>
 <table>
@@ -198,6 +204,12 @@ nb_path: "nbs/10_training.plsr.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Train-&amp;-evaluate">Train &amp; evaluate<a class="anchor-link" href="#Train-&amp;-evaluate"> </a></h2>
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -209,7 +221,7 @@ nb_path: "nbs/10_training.plsr.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="PLS_model" class="doc_header"><code>class</code> <code>PLS_model</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/plsr.py#L71" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PLS_model</code>(<strong><code>n_components</code></strong>)</p>
+<h2 id="PLS_model" class="doc_header"><code>class</code> <code>PLS_model</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/plsr.py#L72" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PLS_model</code>(<strong><code>X_names</code></strong>, <strong><code>pipeline_kwargs</code></strong>=<em><code>{}</code></em>)</p>
 </blockquote>
 <p>Partial Least Squares model runner</p>
 
@@ -241,7 +253,7 @@ nb_path: "nbs/10_training.plsr.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Evaluator" class="doc_header"><code>class</code> <code>Evaluator</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/plsr.py#L95" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Evaluator</code>(<strong><code>data</code></strong>, <strong><code>depth_order</code></strong>, <strong><code>seeds</code></strong>=<em><code>range(0, 20)</code></em>, <strong><code>n_components</code></strong>=<em><code>10</code></em>, <strong><code>split_ratio</code></strong>=<em><code>0.1</code></em>)</p>
+<h2 id="Evaluator" class="doc_header"><code>class</code> <code>Evaluator</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/plsr.py#L98" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Evaluator</code>(<strong><code>data</code></strong>, <strong><code>depth_order</code></strong>, <strong><code>X_names</code></strong>, <strong><code>seeds</code></strong>=<em><code>range(0, 20)</code></em>, <strong><code>pipeline_kwargs</code></strong>=<em><code>{}</code></em>, <strong><code>split_ratio</code></strong>=<em><code>0.1</code></em>)</p>
 </blockquote>
 
 </div>
@@ -257,6 +269,87 @@ nb_path: "nbs/10_training.plsr.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">src_dir</span> <span class="o">=</span> <span class="s1">&#39;./files&#39;</span>
+<span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spectra-features-smp.npy&#39;</span><span class="p">,</span> <span class="s1">&#39;spectra-wavenumbers-smp.npy&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;depth-order-smp.npy&#39;</span><span class="p">,</span> <span class="s1">&#39;target-smp.npy&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;tax-order-lu-smp.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;spectra-id-smp.npy&#39;</span><span class="p">]</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">X_names</span><span class="p">,</span> <span class="n">depth_order</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tax_lookup</span><span class="p">,</span> <span class="n">X_id</span> <span class="o">=</span> <span class="n">load_kssl</span><span class="p">(</span><span class="n">src_dir</span><span class="p">,</span> <span class="n">fnames</span><span class="o">=</span><span class="n">fnames</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pipeline_params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;derivative&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;window_length&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;polyorder&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;deriv&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+    <span class="s1">&#39;dropper&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;regions&#39;</span><span class="p">:</span> <span class="n">CO2_REGION</span><span class="p">},</span>
+    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">evaluator</span> <span class="o">=</span> <span class="n">Evaluator</span><span class="p">((</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">depth_order</span><span class="p">,</span> <span class="n">X_names</span><span class="p">,</span> <span class="n">seeds</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">pipeline_kwargs</span><span class="o">=</span><span class="n">pipeline_params</span><span class="p">)</span>
+<span class="n">evaluator</span><span class="o">.</span><span class="n">train_multiple</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;On training set&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean: &#39;</span><span class="p">,</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">eval_on_train</span><span class="p">(</span><span class="n">reducer</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Std: &#39;</span><span class="p">,</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">eval_on_train</span><span class="p">(</span><span class="n">reducer</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>On training set
+Mean:  {&#39;rpd&#39;: 32.049281736015175, &#39;rpiq&#39;: 21.827749907131174, &#39;r2&#39;: 0.9989470209842526, &#39;lccc&#39;: 0.9994732094321956, &#39;rmse&#39;: 24.03185627874742, &#39;mse&#39;: 714.612236715579, &#39;mae&#39;: 4.0152799305071705, &#39;mape&#39;: 10111.161535778096, &#39;bias&#39;: -3.8209228803702614e-09, &#39;stb&#39;: -7.600922522480678e-09, &#39;n&#39;: 90.0}
+Std:  {&#39;rpd&#39;: 4.788975115073702, &#39;rpiq&#39;: 3.0971967956414552, &#39;r2&#39;: 0.00030781073615632204, &#39;lccc&#39;: 0.00015406755963198737, &#39;rmse&#39;: 11.708207399649494, &#39;mse&#39;: 562.7399150202874, &#39;mae&#39;: 1.968764285186517, &#39;mape&#39;: 44.40121902487226, &#39;bias&#39;: 3.902578135767041e-09, &#39;stb&#39;: 7.7652243814004e-09, &#39;n&#39;: 0.0} 
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
 
 </div>
     {% endraw %}

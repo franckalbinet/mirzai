@@ -18,6 +18,7 @@ from ..data.loading import load_kssl
 from ..data.selection import (select_y, select_tax_order, select_X)
 from ..data.transform import (log_transform_y, SNV, TakeDerivative,
                                    DropSpectralRegions, CO2_REGION)
+from .metrics import eval_reg
 
 # Data science stack
 import numpy as np
@@ -70,16 +71,18 @@ def compute_valid_curve(X:np.ndarray, # Spectra with shape (n_samples, n_wavenum
 # Cell
 class PLS_model():
     "Partial Least Squares model runner"
-    def __init__(self, n_components):
-        self.n_components = n_components
+    def __init__(self, X_names, pipeline_kwargs={}):
+        self.X_names = X_names
+        self.pipeline_kwargs = pipeline_kwargs
         self.model = None
 
     def fit(self, data):
         X, y = data
-        self.model = Pipeline([('snv', SNV()),
-                         ('derivative', TakeDerivative()),
-                         ('dropper', DropSpectralRegions(X_names, regions=CO2_REGION)),
-                         ('model', PLSRegression(n_components=self.n_components))])
+        self.model = Pipeline([
+            ('snv', SNV()),
+            ('derivative', TakeDerivative(**self.pipeline_kwargs['derivative'])),
+            ('dropper', DropSpectralRegions(self.X_names, **self.pipeline_kwargs['dropper'])),
+            ('model', PLSRegression(**self.pipeline_kwargs['model']))])
         self.model.fit(X, y)
         return self
 
@@ -93,21 +96,21 @@ class PLS_model():
 
 # Cell
 class Evaluator():
-    def __init__(self, data, depth_order,
-                 seeds=range(20), n_components=10, split_ratio=0.1):
+    def __init__(self, data, depth_order, X_names,
+                 seeds=range(20), pipeline_kwargs={}, split_ratio=0.1):
         self.seeds = seeds
         self.X, self.y = data
+        self.X_names = X_names
         self.depth_order = depth_order
         self.split_ratio = split_ratio
-        self.n_components = n_components
-
+        self.pipeline_kwargs = pipeline_kwargs
         self.models = []
         self.perfs = OrderedDict({'train': [], 'test': []})
 
     def train_multiple(self):
         for seed in tqdm(self.seeds):
             X_train, X_test, y_train, y_test, depth_order_train, depth_order_test = self._splitter(seed)
-            model = PLS_model(self.n_components)
+            model = PLS_model(self.X_names, self.pipeline_kwargs)
             model.fit((X_train, y_train))
             self.models.append(model)
 
