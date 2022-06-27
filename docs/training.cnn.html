@@ -47,7 +47,7 @@ nb_path: "nbs/12_training.cnn.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Model" class="doc_header"><code>class</code> <code>Model</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L29" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Model</code>(<strong><code>input_dim</code></strong>, <strong><code>in_channel</code></strong>=<em><code>1</code></em>, <strong><code>out_channel</code></strong>=<em><code>16</code></em>, <strong><code>is_classifier</code></strong>=<em><code>False</code></em>, <strong><code>dropout</code></strong>=<em><code>0.4</code></em>) :: <code>Module</code></p>
+<h2 id="Model" class="doc_header"><code>class</code> <code>Model</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L34" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Model</code>(<strong><code>input_dim</code></strong>, <strong><code>in_channel</code></strong>=<em><code>1</code></em>, <strong><code>out_channel</code></strong>=<em><code>16</code></em>, <strong><code>is_classifier</code></strong>=<em><code>False</code></em>, <strong><code>dropout</code></strong>=<em><code>0.4</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -105,7 +105,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="weights_init" class="doc_header"><code>weights_init</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L70" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>weights_init</code>(<strong><code>m</code></strong>)</p>
+<h4 id="weights_init" class="doc_header"><code>weights_init</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L77" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>weights_init</code>(<strong><code>m</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -136,7 +136,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Learner" class="doc_header"><code>class</code> <code>Learner</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L78" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Learner</code>(<strong><code>model</code></strong>, <strong><code>criterion</code></strong>, <strong><code>opt</code></strong>, <strong><code>n_epochs</code></strong>=<em><code>50</code></em>, <strong><code>scheduler</code></strong>=<em><code>None</code></em>, <strong><code>verbose</code></strong>=<em><code>True</code></em>)</p>
+<h2 id="Learner" class="doc_header"><code>class</code> <code>Learner</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L85" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Learner</code>(<strong><code>model</code></strong>, <strong><code>criterion</code></strong>, <strong><code>opt</code></strong>, <strong><code>n_epochs</code></strong>=<em><code>50</code></em>, <strong><code>scheduler</code></strong>=<em><code>None</code></em>, <strong><code>verbose</code></strong>=<em><code>True</code></em>)</p>
 </blockquote>
 
 </div>
@@ -167,7 +167,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Evaluator" class="doc_header"><code>class</code> <code>Evaluator</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L175" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Evaluator</code>(<strong><code>model</code></strong>, <strong><code>data</code></strong>, <strong><code>depth_order</code></strong>, <strong><code>seeds</code></strong>=<em><code>range(0, 20)</code></em>, <strong><code>device</code></strong>=<em><code>'cpu'</code></em>, <strong><code>n_epochs</code></strong>=<em><code>5</code></em>, <strong><code>verbose</code></strong>=<em><code>True</code></em>, <strong><code>split_ratio</code></strong>=<em><code>0.1</code></em>)</p>
+<h2 id="Evaluator" class="doc_header"><code>class</code> <code>Evaluator</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L182" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Evaluator</code>(<strong><code>model</code></strong>, <strong><code>data</code></strong>, <strong><code>depth_order</code></strong>, <strong><code>seeds</code></strong>=<em><code>range(0, 20)</code></em>, <strong><code>device</code></strong>=<em><code>'cpu'</code></em>, <strong><code>n_epochs</code></strong>=<em><code>5</code></em>, <strong><code>verbose</code></strong>=<em><code>True</code></em>, <strong><code>split_ratio</code></strong>=<em><code>0.1</code></em>)</p>
 </blockquote>
 
 </div>

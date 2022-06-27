@@ -35,10 +35,10 @@ entries:
           url: /paper.cnn.learning_curve.html
         - output: web,pdf
           title: 4.3 Validation curve
-          url: /placeholder.html
+          url: /paper.cnn.validation_curve.html
         - output: web,pdf
           title: 4.4 Training & evaluation
-          url: /placeholder.html
+          url: /paper.cnn.train_eval.html
         - output: web,pdf
           title: 4.5 Overfitting in action
           url: /placeholder.html
@@ -99,7 +99,7 @@ entries:
       url: /training.plsr.html
     - output: web,pdf
       title: CNN
-      url: placeholder.html
+      url: /training.cnn.html
     output: web
     title: Train & eval
   output: web

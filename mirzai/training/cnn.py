@@ -13,6 +13,11 @@ import operator
 
 import numpy as np
 
+from sklearn.model_selection import train_test_split
+
+from ..data.torch import DataLoaders, SNV_transform
+from .metrics import eval_reg
+
 # Deep Learning stack
 import torch
 from torch import nn
@@ -39,7 +44,9 @@ class Model(nn.Module):
             self.make_convpool_block(out_channel*8, out_channel*16))
 
         num_features_before_fcnn = functools.reduce(operator.mul,
-                                                    self.feature_extractor(torch.rand(1, in_channel, input_dim)).shape)
+                                                    self.feature_extractor(torch.rand(1,
+                                                                                      in_channel,
+                                                                                      input_dim)).shape)
 
         output_layers = [nn.Dropout(dropout),
                          nn.Linear(in_features=num_features_before_fcnn, out_features=20),
@@ -179,7 +186,7 @@ class Evaluator():
         self.seeds = seeds
         self.model = model
         self.X, self.y = data
-        self.in_shape = X.shape[1]
+        self.in_shape = self.X.shape[1]
         self.depth_order = depth_order
         self.device = device
         self.split_ratio = split_ratio

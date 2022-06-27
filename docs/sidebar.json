@@ -11,8 +11,8 @@
       "4. Convolutional Neural Network (CNN)": {
         "4.1 Learning rate finder": "/paper.cnn.lr_finder.html",
         "4.2 Learning curve": "/paper.cnn.learning_curve.html",
-        "4.3 Validation curve": "/placeholder.html",
-        "4.4 Training & evaluation": "/placeholder.html",
+        "4.3 Validation curve": "/paper.cnn.validation_curve.html",
+        "4.4 Training & evaluation": "/paper.cnn.train_eval.html",
         "4.5 Overfitting in action": "/placeholder.html"
       },
       "5. PLSR vs. CNN figures": {
@@ -39,6 +39,6 @@
   "Train & eval": {
     "Metrics": "/training.metrics.html",
     "PLSR": "/training.plsr.html",
-    "CNN": "placeholder.html"
+    "CNN": "/training.cnn.html"
   }
 }

@@ -7,7 +7,33 @@ Making the following **research paper reproducible**:
 
 Link ... (upon acceptance)
 
-*This work was carried out in the context of the IAEA funded Coordinated Research Project (CRP D1.50.19) titled “Remediation of Radioactive Contaminated Agricultural Land”, under IAEA Technical Contract n°23685.*
+## Paper with code
+
+1. [Exploratory Data Analysis (EDA)](paper.eda.html)
+
+2. [Data selection and transformation](paper.select_transform.html)
+
+3. Baseline model (PLSR):
+    * [Learning curve](paper.plsr.learning_curve.html)
+    * [Validation curve](paper.plsr.validation_curve.html)
+    * [Training & evaluation](paper.plsr.train_eval.html)
+
+4. Convolutional Neural Network (CNN):
+    * [Learning rate finder](paper.cnn.lr_finder.html)
+    * [Learning curve](paper.cnn.learning_curve.html)
+    * [Validation curve](paper.cnn.validation_curve.html)
+    * [Training & evaluation](paper.cnn.train_eval.html)
+    * [Overfitting in action](placeholder.html)
+    
+5. PLSR vs. CNN figures:
+    * [Learning curves](placeholder.html)
+    * [Validation curves](placeholder.html)
+    * [Observed vs. predicted scatterplots](placeholder.html)
+    * [Global vs. local modelling](placeholder.html)
+
+6. Interpretability     
+    * [GradientShap values](placeholder.html)
+    * [GradientShap values correlation](placeholder.html)
 
 ## Install
 
@@ -28,7 +54,4 @@ The preferred way it to use [Mamba](https://mamba.readthedocs.io)
 
 ...
 
-## Paper with code
-
-1. [Exploratory Data Analysis (EDA)](paper.eda.html)
-2. Data selection and transformation
+This work was carried out in the context of the IAEA funded Coordinated Research Project (CRP D1.50.19) titled “Remediation of Radioactive Contaminated Agricultural Land”, under IAEA Technical Contract n°23685.*
