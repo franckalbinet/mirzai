@@ -176,7 +176,7 @@ Taxonomic order lookup:
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Train-on-all-Soil-Taxonomic-Orders-and-test-on-all-and-by-orders">Train on all Soil Taxonomic Orders and test on all and by orders<a class="anchor-link" href="#Train-on-all-Soil-Taxonomic-Orders-and-test-on-all-and-by-orders"> </a></h3>
+<h3 id="Setup">Setup<a class="anchor-link" href="#Setup"> </a></h3>
 </div>
 </div>
 </div>
@@ -190,8 +190,32 @@ Taxonomic order lookup:
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pipeline_params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;derivative&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;window_length&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;polyorder&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;deriv&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
     <span class="s1">&#39;dropper&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;regions&#39;</span><span class="p">:</span> <span class="n">CO2_REGION</span><span class="p">},</span>
-    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
 <span class="p">}</span>
+
+<span class="n">seeds</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Replace by range(20) to reproduce paper&#39;s results</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Train-on-all-Soil-Taxonomic-Orders-and-test-on-all-and-by-orders">Train on all Soil Taxonomic Orders and test on all and by orders<a class="anchor-link" href="#Train-on-all-Soil-Taxonomic-Orders-and-test-on-all-and-by-orders"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pipeline_params</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
 </pre></div>
 
     </div>
@@ -208,7 +232,7 @@ Taxonomic order lookup:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">evaluator</span> <span class="o">=</span> <span class="n">Evaluator</span><span class="p">((</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">depth_order</span><span class="p">,</span> <span class="n">X_names</span><span class="p">,</span> <span class="n">seeds</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">pipeline_kwargs</span><span class="o">=</span><span class="n">pipeline_params</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">evaluator</span> <span class="o">=</span> <span class="n">Evaluator</span><span class="p">((</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">depth_order</span><span class="p">,</span> <span class="n">X_names</span><span class="p">,</span> <span class="n">seeds</span><span class="o">=</span><span class="n">seeds</span><span class="p">,</span> <span class="n">pipeline_kwargs</span><span class="o">=</span><span class="n">pipeline_params</span><span class="p">)</span>
 <span class="n">evaluator</span><span class="o">.</span><span class="n">train_multiple</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;On training set&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean: &#39;</span><span class="p">,</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">eval_on_train</span><span class="p">(</span><span class="n">reducer</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">))</span>
@@ -251,13 +275,9 @@ Taxonomic order lookup:
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pipeline_params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;derivative&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;window_length&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;polyorder&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;deriv&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
-    <span class="s1">&#39;dropper&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;regions&#39;</span><span class="p">:</span> <span class="n">CO2_REGION</span><span class="p">},</span>
-    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
-<span class="p">}</span>
-<span class="n">order</span> <span class="o">=</span> <span class="mi">1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">order</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">depth_order</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">order</span><span class="p">)</span> 
+<span class="n">pipeline_params</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">}</span>
 </pre></div>
 
     </div>
@@ -275,7 +295,7 @@ Taxonomic order lookup:
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">evaluator</span> <span class="o">=</span> <span class="n">Evaluator</span><span class="p">((</span><span class="n">X</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">]),</span> <span class="n">depth_order</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="p">:],</span> 
-                      <span class="n">X_names</span><span class="p">,</span> <span class="n">seeds</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">pipeline_kwargs</span><span class="o">=</span><span class="n">pipeline_params</span><span class="p">)</span>
+                      <span class="n">X_names</span><span class="p">,</span> <span class="n">seeds</span><span class="o">=</span><span class="n">seeds</span><span class="p">,</span> <span class="n">pipeline_kwargs</span><span class="o">=</span><span class="n">pipeline_params</span><span class="p">)</span>
 
 
 <span class="n">evaluator</span><span class="o">.</span><span class="n">train_multiple</span><span class="p">()</span>
@@ -329,13 +349,9 @@ Std:  {&#39;rpd&#39;: 0.050014580604922365, &#39;rpiq&#39;: 0.03742146285581538,
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pipeline_params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;derivative&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;window_length&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;polyorder&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;deriv&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
-    <span class="s1">&#39;dropper&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;regions&#39;</span><span class="p">:</span> <span class="n">CO2_REGION</span><span class="p">},</span>
-    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
-<span class="p">}</span>
-<span class="n">order</span> <span class="o">=</span> <span class="mi">12</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">order</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">depth_order</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">order</span><span class="p">)</span> 
+<span class="n">pipeline_params</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 </pre></div>
 
     </div>
@@ -353,7 +369,7 @@ Std:  {&#39;rpd&#39;: 0.050014580604922365, &#39;rpiq&#39;: 0.03742146285581538,
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">evaluator</span> <span class="o">=</span> <span class="n">Evaluator</span><span class="p">((</span><span class="n">X</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">]),</span> <span class="n">depth_order</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="p">:],</span> 
-                      <span class="n">X_names</span><span class="p">,</span> <span class="n">seeds</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">pipeline_kwargs</span><span class="o">=</span><span class="n">pipeline_params</span><span class="p">)</span>
+                      <span class="n">X_names</span><span class="p">,</span> <span class="n">seeds</span><span class="o">=</span><span class="n">seeds</span><span class="p">,</span> <span class="n">pipeline_kwargs</span><span class="o">=</span><span class="n">pipeline_params</span><span class="p">)</span>
 <span class="n">evaluator</span><span class="o">.</span><span class="n">train_multiple</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;On training set&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean: &#39;</span><span class="p">,</span> <span class="n">evaluator</span><span class="o">.</span><span class="n">eval_on_train</span><span class="p">(</span><span class="n">reducer</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">))</span>
@@ -405,13 +421,9 @@ Std:  {&#39;rpd&#39;: 0.12183251937866568, &#39;rpiq&#39;: 0.38572778098588023, 
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pipeline_params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;derivative&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;window_length&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;polyorder&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;deriv&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
-    <span class="s1">&#39;dropper&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;regions&#39;</span><span class="p">:</span> <span class="n">CO2_REGION</span><span class="p">},</span>
-    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
-<span class="p">}</span>
-<span class="n">order</span> <span class="o">=</span> <span class="mi">10</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">order</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">depth_order</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">order</span><span class="p">)</span> 
+<span class="n">pipeline_params</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
 </pre></div>
 
     </div>
@@ -429,7 +441,7 @@ Std:  {&#39;rpd&#39;: 0.12183251937866568, &#39;rpiq&#39;: 0.38572778098588023, 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">evaluator</span> <span class="o">=</span> <span class="n">Evaluator</span><span class="p">((</span><span class="n">X</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">]),</span> <span class="n">depth_order</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="p">:],</span> 
-                      <span class="n">X_names</span><span class="p">,</span> <span class="n">seeds</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">pipeline_kwargs</span><span class="o">=</span><span class="n">pipeline_params</span><span class="p">)</span>
+                      <span class="n">X_names</span><span class="p">,</span> <span class="n">seeds</span><span class="o">=</span><span class="n">seeds</span><span class="p">,</span> <span class="n">pipeline_kwargs</span><span class="o">=</span><span class="n">pipeline_params</span><span class="p">)</span>
 
 <span class="n">evaluator</span><span class="o">.</span><span class="n">train_multiple</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;On training set&#39;</span><span class="p">)</span>

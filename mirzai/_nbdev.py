@@ -26,7 +26,14 @@ index = {"say_hello": "00_core.ipynb",
          "eval_reg": "07_training.metrics.ipynb",
          "compute_valid_curve": "10_training.plsr.ipynb",
          "PLS_model": "10_training.plsr.ipynb",
-         "Evaluator": "10_training.plsr.ipynb"}
+         "Evaluator": "12_training.cnn.ipynb",
+         "Model": "12_training.cnn.ipynb",
+         "weights_init": "12_training.cnn.ipynb",
+         "Learner": "12_training.cnn.ipynb",
+         "SpectralDataset": "13_data.torch.ipynb",
+         "DataLoaders": "13_data.torch.ipynb",
+         "SNV_transform": "13_data.torch.ipynb",
+         "Noop": "13_data.torch.ipynb"}
 
 modules = ["core.py",
            "data/loading.py",
@@ -34,7 +41,9 @@ modules = ["core.py",
            "data/selection.py",
            "data/transform.py",
            "training/metrics.py",
-           "training/plsr.py"]
+           "training/plsr.py",
+           "training/cnn.py",
+           "data/torch.py"]
 
 doc_url = "https://franckalbinet.github.io/mirzai/"
 

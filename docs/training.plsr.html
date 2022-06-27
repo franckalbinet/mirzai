@@ -53,7 +53,7 @@ nb_path: "nbs/10_training.plsr.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="compute_valid_curve" class="doc_header"><code>compute_valid_curve</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/plsr.py#L34" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>compute_valid_curve</code>(<strong><code>X</code></strong>:<code>np.ndarray</code>, <strong><code>y</code></strong>:<code>np.ndarray</code>, <strong><code>X_names</code></strong>:<code>np.ndarray</code>, <strong><code>mask</code></strong>:<code>np.ndarray</code>=<em><code>None</code></em>, <strong><code>pls_components</code></strong>:<code>list</code>=<em><code>range(5, 120, 5)</code></em>, <strong><code>seeds</code></strong>:<code>list</code>=<em><code>range(0, 20)</code></em>, <strong><code>test_size</code></strong>:<code>float</code>=<em><code>0.1</code></em>)</p>
+<h4 id="compute_valid_curve" class="doc_header"><code>compute_valid_curve</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/plsr.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>compute_valid_curve</code>(<strong><code>X</code></strong>:<code>ndarray</code>, <strong><code>y</code></strong>:<code>ndarray</code>, <strong><code>X_names</code></strong>:<code>ndarray</code>, <strong><code>mask</code></strong>:<code>ndarray</code>=<em><code>None</code></em>, <strong><code>pls_components</code></strong>:<code>list</code>=<em><code>range(5, 120, 5)</code></em>, <strong><code>seeds</code></strong>:<code>list</code>=<em><code>range(0, 20)</code></em>, <strong><code>test_size</code></strong>:<code>float</code>=<em><code>0.1</code></em>)</p>
 </blockquote>
 <p>Train the PLSR model on training &amp; evaluate it on the valid set as # pls components increases</p>
 <table>
@@ -67,25 +67,25 @@ nb_path: "nbs/10_training.plsr.ipynb"
 <tbody>
 <tr>
 <td><strong><code>X</code></strong></td>
-<td><code>np.ndarray</code></td>
+<td><code>ndarray</code></td>
 <td></td>
 <td>Spectra with shape (n_samples, n_wavenumbers)</td>
 </tr>
 <tr>
 <td><strong><code>y</code></strong></td>
-<td><code>np.ndarray</code></td>
+<td><code>ndarray</code></td>
 <td></td>
 <td>Target with shape (n_samples)</td>
 </tr>
 <tr>
 <td><strong><code>X_names</code></strong></td>
-<td><code>np.ndarray</code></td>
+<td><code>ndarray</code></td>
 <td></td>
 <td>Wavenumbers name with shape (n_wavenumbers)</td>
 </tr>
 <tr>
 <td><strong><code>mask</code></strong></td>
-<td><code>np.ndarray</code></td>
+<td><code>ndarray</code></td>
 <td><code>None</code></td>
 <td>Mask (e.g for specific Soil Taxonomy Orders) with shape (n_samples)</td>
 </tr>
@@ -221,7 +221,7 @@ nb_path: "nbs/10_training.plsr.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="PLS_model" class="doc_header"><code>class</code> <code>PLS_model</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/plsr.py#L72" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PLS_model</code>(<strong><code>X_names</code></strong>, <strong><code>pipeline_kwargs</code></strong>=<em><code>{}</code></em>)</p>
+<h2 id="PLS_model" class="doc_header"><code>class</code> <code>PLS_model</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/plsr.py#L68" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>PLS_model</code>(<strong><code>X_names</code></strong>, <strong><code>pipeline_kwargs</code></strong>=<em><code>{}</code></em>)</p>
 </blockquote>
 <p>Partial Least Squares model runner</p>
 
@@ -253,7 +253,7 @@ nb_path: "nbs/10_training.plsr.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Evaluator" class="doc_header"><code>class</code> <code>Evaluator</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/plsr.py#L98" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Evaluator</code>(<strong><code>data</code></strong>, <strong><code>depth_order</code></strong>, <strong><code>X_names</code></strong>, <strong><code>seeds</code></strong>=<em><code>range(0, 20)</code></em>, <strong><code>pipeline_kwargs</code></strong>=<em><code>{}</code></em>, <strong><code>split_ratio</code></strong>=<em><code>0.1</code></em>)</p>
+<h2 id="Evaluator" class="doc_header"><code>class</code> <code>Evaluator</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/plsr.py#L94" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Evaluator</code>(<strong><code>data</code></strong>, <strong><code>depth_order</code></strong>, <strong><code>X_names</code></strong>, <strong><code>seeds</code></strong>=<em><code>range(0, 20)</code></em>, <strong><code>pipeline_kwargs</code></strong>=<em><code>{}</code></em>, <strong><code>split_ratio</code></strong>=<em><code>0.1</code></em>)</p>
 </blockquote>
 
 </div>

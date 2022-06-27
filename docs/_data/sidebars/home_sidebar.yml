@@ -28,16 +28,19 @@ entries:
       - output: web
         subfolderitems:
         - output: web,pdf
-          title: 4.1 Learning curve
+          title: 4.1 Learning rate finder
+          url: /paper.cnn.lr_finder.html
+        - output: web,pdf
+          title: 4.2 Learning curve
+          url: /paper.cnn.learning_curve.html
+        - output: web,pdf
+          title: 4.3 Validation curve
           url: /placeholder.html
         - output: web,pdf
-          title: 4.2 Validation curve
+          title: 4.4 Training & evaluation
           url: /placeholder.html
         - output: web,pdf
-          title: 4.3 Training & evaluation
-          url: /placeholder.html
-        - output: web,pdf
-          title: 4.4 Overfitting in action
+          title: 4.5 Overfitting in action
           url: /placeholder.html
         title: 4. Convolutional Neural Network (CNN)
       - output: web
@@ -76,6 +79,9 @@ entries:
     - output: web,pdf
       title: Transform
       url: /data.transform.html
+    - output: web,pdf
+      title: Torch
+      url: /data.torch.html
     output: web
     title: Data
   - folderitems:

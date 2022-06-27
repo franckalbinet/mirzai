@@ -53,7 +53,7 @@ nb_path: "nbs/05_data.transform.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="log_transform_y" class="doc_header"><code>log_transform_y</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/data/transform.py#L20" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>log_transform_y</code>(<strong><code>data</code></strong>:<code>tuple</code>)</p>
+<h4 id="log_transform_y" class="doc_header"><code>log_transform_y</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/data/transform.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>log_transform_y</code>(<strong><code>data</code></strong>:<code>tuple</code>)</p>
 </blockquote>
 <p>Log-10 transform of the target value</p>
 <p>Takes and returns all (X, y, X_id, depth_order) tuple to be able to pipe the function</p>
@@ -116,7 +116,7 @@ nb_path: "nbs/05_data.transform.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="TakeDerivative" class="doc_header"><code>class</code> <code>TakeDerivative</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/data/transform.py#L35" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>TakeDerivative</code>(<strong><code>window_length</code></strong>=<em><code>11</code></em>, <strong><code>polyorder</code></strong>=<em><code>1</code></em>, <strong><code>deriv</code></strong>=<em><code>1</code></em>) :: <code>BaseEstimator</code></p>
+<h2 id="TakeDerivative" class="doc_header"><code>class</code> <code>TakeDerivative</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/data/transform.py#L31" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>TakeDerivative</code>(<strong><code>window_length</code></strong>=<em><code>11</code></em>, <strong><code>polyorder</code></strong>=<em><code>1</code></em>, <strong><code>deriv</code></strong>=<em><code>1</code></em>) :: <code>BaseEstimator</code></p>
 </blockquote>
 <p>Creates scikit-learn derivation custom transformer</p>
 <p>Args:
@@ -219,7 +219,7 @@ deriv: int, optional
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="SNV" class="doc_header"><code>class</code> <code>SNV</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/data/transform.py#L63" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SNV</code>() :: <code>BaseEstimator</code></p>
+<h2 id="SNV" class="doc_header"><code>class</code> <code>SNV</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/data/transform.py#L59" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SNV</code>() :: <code>BaseEstimator</code></p>
 </blockquote>
 <p>Creates scikit-learn SNV custom transformer</p>
 <p>Args:
@@ -360,7 +360,7 @@ deriv: int, optional
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="DropSpectralRegions" class="doc_header"><code>class</code> <code>DropSpectralRegions</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/data/transform.py#L83" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>DropSpectralRegions</code>(<strong><code>wavenumbers</code></strong>, <strong><code>regions</code></strong>=<em><code>[2389, 2269]</code></em>) :: <code>BaseEstimator</code></p>
+<h2 id="DropSpectralRegions" class="doc_header"><code>class</code> <code>DropSpectralRegions</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/data/transform.py#L79" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>DropSpectralRegions</code>(<strong><code>wavenumbers</code></strong>, <strong><code>regions</code></strong>=<em><code>[2389, 2269]</code></em>) :: <code>BaseEstimator</code></p>
 </blockquote>
 <p>Creates scikit-learn custom transformer dropping specific spectral region(s)</p>
 <p>Args:
