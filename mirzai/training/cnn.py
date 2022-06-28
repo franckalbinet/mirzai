@@ -10,11 +10,15 @@ from collections import OrderedDict
 from tqdm.auto import tqdm
 import functools
 import operator
+from pathlib import Path
 
 import numpy as np
 
 from sklearn.model_selection import train_test_split
 
+from ..data.loading import load_kssl
+from ..data.selection import (select_y, select_tax_order, select_X)
+from ..data.transform import log_transform_y
 from ..data.torch import DataLoaders, SNV_transform
 from .metrics import eval_reg
 
@@ -23,7 +27,9 @@ import torch
 from torch import nn
 from torchvision import transforms
 from torch.utils.data import DataLoader, Dataset
-from torch.optim.lr_scheduler import ReduceLROnPlateau
+from torch.optim import Adam
+from torch.optim.lr_scheduler import CyclicLR
+from torch.nn import MSELoss
 
 from fastcore.test import *
 from fastcore.basics import store_attr
@@ -177,7 +183,9 @@ class Learner():
             if isinstance(m, nn.BatchNorm1d):
                 m.eval()
     def _npify(self, tensor):
+        if self.device.type == 'cpu': return tensor.numpy()
         return tensor.cpu().numpy()
+
 
 # Cell
 class Evaluator():

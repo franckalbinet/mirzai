@@ -9,7 +9,7 @@ Link ... (upon acceptance)
 
 ## Paper with code
 
-1. [Exploratory Data Analysis (EDA)](paper.eda.html)
+1. [Exploratory Data Analysis (Fig. 1)](paper.eda.html)
 
 2. [Data selection and transformation](paper.select_transform.html)
 
@@ -23,17 +23,17 @@ Link ... (upon acceptance)
     * [Learning curve](paper.cnn.learning_curve.html)
     * [Validation curve](paper.cnn.validation_curve.html)
     * [Training & evaluation](paper.cnn.train_eval.html)
-    * [Overfitting in action](placeholder.html)
+    * [Overfitting in action (Fig. 6)](paper.cnn.overfitting.html)
     
 5. PLSR vs. CNN figures:
-    * [Learning curves](paper.figures.learning_curves.html)
-    * [Validation curves](paper.figures.validation_curves.html)
-    * [Observed vs. predicted scatterplots](placeholder.html)
-    * [Global vs. local modelling](paper.figures.global_vs_local.html)
+    * [Learning curves (Fig. 3)](paper.figures.learning_curves.html)
+    * [Validation curves (Fig. 4)](paper.figures.validation_curves.html)
+    * [Observed vs. predicted scatterplots (Fig. 5) - WIP](placeholder.html)
+    * [Global vs. local modelling (Fig. 7)](paper.figures.global_vs_local.html)
 
 6. Interpretability     
-    * [GradientShap values](placeholder.html)
-    * [GradientShap values correlation](placeholder.html)
+    * [GradientShap values (Fig. 8) - WIP)](placeholder.html)
+    * [GradientShap values correlation (Fig. 9) - WIP](placeholder.html)
 
 ## Install
 

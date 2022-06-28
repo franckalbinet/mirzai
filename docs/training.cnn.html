@@ -47,7 +47,7 @@ nb_path: "nbs/12_training.cnn.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Model" class="doc_header"><code>class</code> <code>Model</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L34" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Model</code>(<strong><code>input_dim</code></strong>, <strong><code>in_channel</code></strong>=<em><code>1</code></em>, <strong><code>out_channel</code></strong>=<em><code>16</code></em>, <strong><code>is_classifier</code></strong>=<em><code>False</code></em>, <strong><code>dropout</code></strong>=<em><code>0.4</code></em>) :: <code>Module</code></p>
+<h2 id="Model" class="doc_header"><code>class</code> <code>Model</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L40" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Model</code>(<strong><code>input_dim</code></strong>, <strong><code>in_channel</code></strong>=<em><code>1</code></em>, <strong><code>out_channel</code></strong>=<em><code>16</code></em>, <strong><code>is_classifier</code></strong>=<em><code>False</code></em>, <strong><code>dropout</code></strong>=<em><code>0.4</code></em>) :: <code>Module</code></p>
 </blockquote>
 <p>Base class for all neural network modules.</p>
 <p>Your models should also subclass this class.</p>
@@ -105,7 +105,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="weights_init" class="doc_header"><code>weights_init</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L77" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>weights_init</code>(<strong><code>m</code></strong>)</p>
+<h4 id="weights_init" class="doc_header"><code>weights_init</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L83" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>weights_init</code>(<strong><code>m</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -136,7 +136,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Learner" class="doc_header"><code>class</code> <code>Learner</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L85" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Learner</code>(<strong><code>model</code></strong>, <strong><code>criterion</code></strong>, <strong><code>opt</code></strong>, <strong><code>n_epochs</code></strong>=<em><code>50</code></em>, <strong><code>scheduler</code></strong>=<em><code>None</code></em>, <strong><code>verbose</code></strong>=<em><code>True</code></em>)</p>
+<h2 id="Learner" class="doc_header"><code>class</code> <code>Learner</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L91" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Learner</code>(<strong><code>model</code></strong>, <strong><code>criterion</code></strong>, <strong><code>opt</code></strong>, <strong><code>n_epochs</code></strong>=<em><code>50</code></em>, <strong><code>scheduler</code></strong>=<em><code>None</code></em>, <strong><code>verbose</code></strong>=<em><code>True</code></em>)</p>
 </blockquote>
 
 </div>
@@ -167,7 +167,7 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="Evaluator" class="doc_header"><code>class</code> <code>Evaluator</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L183" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Evaluator</code>(<strong><code>model</code></strong>, <strong><code>data</code></strong>, <strong><code>depth_order</code></strong>, <strong><code>seeds</code></strong>=<em><code>range(0, 20)</code></em>, <strong><code>device</code></strong>=<em><code>'cpu'</code></em>, <strong><code>n_epochs</code></strong>=<em><code>5</code></em>, <strong><code>verbose</code></strong>=<em><code>True</code></em>, <strong><code>split_ratio</code></strong>=<em><code>0.1</code></em>)</p>
+<h2 id="Evaluator" class="doc_header"><code>class</code> <code>Evaluator</code><a href="https://github.com/franckalbinet/mirzai/tree/{branch}/mirzai/training/cnn.py#L191" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>Evaluator</code>(<strong><code>model</code></strong>, <strong><code>data</code></strong>, <strong><code>depth_order</code></strong>, <strong><code>seeds</code></strong>=<em><code>range(0, 20)</code></em>, <strong><code>device</code></strong>=<em><code>'cpu'</code></em>, <strong><code>n_epochs</code></strong>=<em><code>5</code></em>, <strong><code>verbose</code></strong>=<em><code>True</code></em>, <strong><code>split_ratio</code></strong>=<em><code>0.1</code></em>)</p>
 </blockquote>
 
 </div>
@@ -183,6 +183,341 @@ parameters converted too when you call :meth:<code>to</code>, etc.</p>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-to-use-the-Model-&amp;-Learner?">How to use the Model &amp; Learner?<a class="anchor-link" href="#How-to-use-the-Model-&amp;-Learner?"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Load-data">1. Load data<a class="anchor-link" href="#1.-Load-data"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">src_dir</span> <span class="o">=</span> <span class="s1">&#39;./files&#39;</span>
+<span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spectra-features-smp.npy&#39;</span><span class="p">,</span> <span class="s1">&#39;spectra-wavenumbers-smp.npy&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;depth-order-smp.npy&#39;</span><span class="p">,</span> <span class="s1">&#39;target-smp.npy&#39;</span><span class="p">,</span> 
+          <span class="s1">&#39;tax-order-lu-smp.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;spectra-id-smp.npy&#39;</span><span class="p">]</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">X_names</span><span class="p">,</span> <span class="n">depth_order</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tax_lookup</span><span class="p">,</span> <span class="n">X_id</span> <span class="o">=</span> <span class="n">load_kssl</span><span class="p">(</span><span class="n">src_dir</span><span class="p">,</span> <span class="n">fnames</span><span class="o">=</span><span class="n">fnames</span><span class="p">)</span>
+<span class="n">transforms</span> <span class="o">=</span> <span class="p">[</span><span class="n">select_y</span><span class="p">,</span> <span class="n">select_tax_order</span><span class="p">,</span> <span class="n">select_X</span><span class="p">,</span> <span class="n">log_transform_y</span><span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">X_id</span><span class="p">,</span> <span class="n">depth_order</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">X_id</span><span class="p">,</span> <span class="n">depth_order</span> <span class="o">=</span> <span class="n">compose</span><span class="p">(</span><span class="o">*</span><span class="n">transforms</span><span class="p">)(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Create-DataLoaders">2. Create DataLoaders<a class="anchor-link" href="#2.-Create-DataLoaders"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">data</span>
+<span class="n">dls</span> <span class="o">=</span> <span class="n">DataLoaders</span><span class="p">(((</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)),</span> <span class="n">transform</span><span class="o">=</span><span class="n">SNV_transform</span><span class="p">())</span>
+<span class="n">training_generator</span><span class="p">,</span> <span class="n">validation_generator</span> <span class="o">=</span> <span class="n">dls</span><span class="o">.</span><span class="n">loaders</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Configure">3. Configure<a class="anchor-link" href="#3.-Configure"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">use_cuda</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda:0&#39;</span> <span class="k">if</span> <span class="n">use_cuda</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Runtime is: </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">n_epochs</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">step_size_up</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">MSELoss</span><span class="p">()</span> <span class="c1"># Mean Squared Error loss</span>
+<span class="n">base_lr</span><span class="p">,</span> <span class="n">max_lr</span> <span class="o">=</span> <span class="mf">3e-5</span><span class="p">,</span> <span class="mf">1e-3</span> <span class="c1"># Based on Learning Rate</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Runtime is: cpu
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Train">4. Train<a class="anchor-link" href="#4.-Train"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">out_channel</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="n">opt</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">weights_init</span><span class="p">)</span>
+
+<span class="n">scheduler</span> <span class="o">=</span> <span class="n">CyclicLR</span><span class="p">(</span><span class="n">opt</span><span class="p">,</span> <span class="n">base_lr</span><span class="o">=</span><span class="n">base_lr</span><span class="p">,</span> <span class="n">max_lr</span><span class="o">=</span><span class="n">max_lr</span><span class="p">,</span>
+                     <span class="n">step_size_up</span><span class="o">=</span><span class="n">step_size_up</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;triangular&#39;</span><span class="p">,</span>
+                     <span class="n">cycle_momentum</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">learner</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">opt</span><span class="p">,</span> <span class="n">n_epochs</span><span class="o">=</span><span class="n">n_epochs</span><span class="p">,</span> 
+                      <span class="n">scheduler</span><span class="o">=</span><span class="n">scheduler</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span><span class="p">,</span> <span class="n">losses</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_generator</span><span class="p">,</span> <span class="n">validation_generator</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Runtime is: cpu
+End of Epoch 1
+ Training loss: 0.4724753201007843
+ Validation loss: 0.4461791217327118
+End of Epoch 2
+ Training loss: 0.4700215756893158
+ Validation loss: 0.4440048933029175
+End of Epoch 3
+ Training loss: 0.4629613310098648
+ Validation loss: 0.4400778114795685
+End of Epoch 4
+ Training loss: 0.45456525683403015
+ Validation loss: 0.4344136714935303
+End of Epoch 5
+ Training loss: 0.44188420474529266
+ Validation loss: 0.4269924759864807
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.-Or-load-a-trained-one">5. Or load a trained one<a class="anchor-link" href="#5.-Or-load-a-trained-one"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">MODEL_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./files/models&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">out_channel</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;cpu&#39;</span><span class="p">:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="o">/</span><span class="s1">&#39;model-50-epochs-02-03-2022.pt&#39;</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">MODEL_PATH</span><span class="o">/</span><span class="s1">&#39;model-50-epochs-02-03-2022.pt&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">learner</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.-Evaluate">5. Evaluate<a class="anchor-link" href="#5.-Evaluate"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ys_hat</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">training_generator</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ys_hat</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[-6.1474520e-01],
+       [-4.3678096e-01],
+       [-3.1005955e-01],
+       [-5.5490917e-01],
+       [-7.0657128e-01],
+       [ 2.2239998e-02],
+       [-5.1539749e-01],
+       [-4.8553246e-01],
+       [-7.4642766e-01],
+       [-6.1424100e-01],
+       [-4.9546748e-01],
+       [-7.3782527e-01],
+       [-4.1124669e-01],
+       [ 1.9154258e-01],
+       [-3.1577641e-01],
+       [-4.2637795e-01],
+       [-6.3806063e-01],
+       [-5.6492186e-01],
+       [-6.0834360e-01],
+       [-5.8859020e-01],
+       [-7.6436365e-01],
+       [-5.8752716e-01],
+       [-4.3051451e-01],
+       [ 3.0782163e-02],
+       [-7.4637187e-01],
+       [-1.2382591e-01],
+       [-2.9297099e-01],
+       [-5.9430248e-01],
+       [-4.3969932e-01],
+       [-5.6213212e-01],
+       [-1.2531406e-01],
+       [ 6.9543558e-01],
+       [-6.0953701e-01],
+       [-1.3631301e-01],
+       [-4.8586696e-01],
+       [-9.9166960e-02],
+       [-9.4755155e-01],
+       [-6.4810383e-01],
+       [ 4.3125200e-01],
+       [-5.7949871e-03],
+       [ 9.4556808e-04],
+       [-5.0269514e-03],
+       [-6.6985899e-01],
+       [-5.0107288e-01],
+       [-5.4777044e-01],
+       [-3.8114691e-01],
+       [-5.2234936e-01],
+       [-2.7614552e-01],
+       [-2.2900209e-02],
+       [-5.9693414e-01],
+       [-6.8694133e-01],
+       [-5.7158720e-01],
+       [-1.1152372e-02],
+       [-6.7394710e-01],
+       [-6.7003834e-01],
+       [-6.5175313e-01],
+       [-2.8865260e-01],
+       [ 9.0617016e-02],
+       [ 1.8281494e-01],
+       [-4.1298580e-01],
+       [-5.7701957e-01],
+       [-4.4111118e-01],
+       [-3.6405924e-01]], dtype=float32)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
 
 </div>
     {% endraw %}
