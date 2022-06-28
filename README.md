@@ -26,8 +26,8 @@ Link ... (upon acceptance)
     * [Overfitting in action](placeholder.html)
     
 5. PLSR vs. CNN figures:
-    * [Learning curves](placeholder.html)
-    * [Validation curves](placeholder.html)
+    * [Learning curves](paper.figures.learning_curves.html)
+    * [Validation curves](paper.figures.validation_curves.html)
     * [Observed vs. predicted scatterplots](placeholder.html)
     * [Global vs. local modelling](placeholder.html)
 
@@ -54,4 +54,8 @@ The preferred way it to use [Mamba](https://mamba.readthedocs.io)
 
 ...
 
-This work was carried out in the context of the IAEA funded Coordinated Research Project (CRP D1.50.19) titled “Remediation of Radioactive Contaminated Agricultural Land”, under IAEA Technical Contract n°23685.*
+## Acknowledgements
+
+*This work was carried out in the context of the IAEA funded Coordinated Research Project (CRP D1.50.19) titled [“Remediation of Radioactive Contaminated Agricultural Land”](https://www.iaea.org/projects/crp/d15019), under IAEA Technical Contract n°23685. 
+
+We also thank Richard Ferguson from Kellogg Soil Survey Laboratory for providing access to the USDA MIR soil spectra library and the r equired training sessions for its operation.*

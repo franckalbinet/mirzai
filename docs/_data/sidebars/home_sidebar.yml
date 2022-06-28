@@ -41,16 +41,16 @@ entries:
           url: /paper.cnn.train_eval.html
         - output: web,pdf
           title: 4.5 Overfitting in action
-          url: /placeholder.html
+          url: /paper.cnn.overfitting.html
         title: 4. Convolutional Neural Network (CNN)
       - output: web
         subfolderitems:
         - output: web,pdf
           title: 5.1 Learning curves
-          url: /placeholder.html
+          url: /paper.figures.learning_curves.html
         - output: web,pdf
           title: 5.2 Validation curves
-          url: /placeholder.html
+          url: /paper.figures.validation_curves.html
         - output: web,pdf
           title: 5.3 Observed vs. predicted scatterplots
           url: /placeholder.html

@@ -13,11 +13,11 @@
         "4.2 Learning curve": "/paper.cnn.learning_curve.html",
         "4.3 Validation curve": "/paper.cnn.validation_curve.html",
         "4.4 Training & evaluation": "/paper.cnn.train_eval.html",
-        "4.5 Overfitting in action": "/placeholder.html"
+        "4.5 Overfitting in action": "/paper.cnn.overfitting.html"
       },
       "5. PLSR vs. CNN figures": {
-        "5.1 Learning curves": "/placeholder.html",
-        "5.2 Validation curves": "/placeholder.html",
+        "5.1 Learning curves": "/paper.figures.learning_curves.html",
+        "5.2 Validation curves": "/paper.figures.validation_curves.html",
         "5.3 Observed vs. predicted scatterplots": "/placeholder.html",
         "5.4 Global vs. local modelling": "/placeholder.html"
       },

@@ -159,6 +159,7 @@ class Learner():
         return (self._npify(torch.cat(y)) for y in (ys_hat, ys))
 
     def _to_device(self, batches):
+        if self.device.type == 'cpu': return batches
         return (batch.to(self.device) for batch in batches)
 
     def _init_losses(self):
