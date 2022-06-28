@@ -56,7 +56,7 @@ entries:
           url: /placeholder.html
         - output: web,pdf
           title: 5.4 Global vs. local modelling
-          url: /placeholder.html
+          url: /paper.figures.global_vs_local.html
         title: 5. PLSR vs. CNN figures
       - output: web
         subfolderitems:

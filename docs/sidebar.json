@@ -19,7 +19,7 @@
         "5.1 Learning curves": "/paper.figures.learning_curves.html",
         "5.2 Validation curves": "/paper.figures.validation_curves.html",
         "5.3 Observed vs. predicted scatterplots": "/placeholder.html",
-        "5.4 Global vs. local modelling": "/placeholder.html"
+        "5.4 Global vs. local modelling": "/paper.figures.global_vs_local.html"
       },
       "6. Interpretability": {
         "6.1 GradientShap values": "/placeholder.html",

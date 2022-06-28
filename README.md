@@ -29,7 +29,7 @@ Link ... (upon acceptance)
     * [Learning curves](paper.figures.learning_curves.html)
     * [Validation curves](paper.figures.validation_curves.html)
     * [Observed vs. predicted scatterplots](placeholder.html)
-    * [Global vs. local modelling](placeholder.html)
+    * [Global vs. local modelling](paper.figures.global_vs_local.html)
 
 6. Interpretability     
     * [GradientShap values](placeholder.html)
