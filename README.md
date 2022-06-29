@@ -79,7 +79,11 @@ dependencies:
 
 Google Colab has been used to perform the experiments described in the above mentioned paper. The main advantage of Colab is to give access to a GPU (Graphical Processing Unit) which allows to train Deep Learning model in a fair amount of time. 
 > *Please refer to [Colab FAQ](https://research.google.com/colaboratory/faq.html) for further information.*
-Each notebook listed above includes a <img src="./images/colab-link.png" style="display: inline; max-width: 120px" /> link to load it in the Google Colab environment. When clicking on those links, the notebook will get loaded in Google Colab.
+Each notebook listed above includes a 
+
+<img src="nbs/images/colab-link.png" style="display: inline; max-width: 120px"> 
+
+link to load it in the Google Colab environment. When clicking on those links, the notebook will get loaded in Google Colab.
 
 Then, once open in Colab, you will need:
 
