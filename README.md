@@ -28,7 +28,7 @@ Link ... (upon acceptance)
 5. PLSR vs. CNN figures:
     * [Learning curves (Fig. 3)](paper.figures.learning_curves.html)
     * [Validation curves (Fig. 4)](paper.figures.validation_curves.html)
-    * [Observed vs. predicted scatterplots (Fig. 5) - WIP](placeholder.html)
+    * [Observed vs. predicted scatterplots (Fig. 5)](paper.figures.observed_vs_predicted.html)
     * [Global vs. local modelling (Fig. 7)](paper.figures.global_vs_local.html)
 
 6. Interpretability     

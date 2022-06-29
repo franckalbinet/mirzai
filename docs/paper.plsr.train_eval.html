@@ -69,7 +69,12 @@ nb_path: "nbs/11_paper.plsr.train_eval.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">mirzai.data.loading</span> <span class="kn">import</span> <span class="n">load_kssl</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+
+<span class="c1"># mirzai utilities</span>
+<span class="kn">from</span> <span class="nn">mirzai.data.loading</span> <span class="kn">import</span> <span class="n">load_kssl</span>
 <span class="kn">from</span> <span class="nn">mirzai.data.selection</span> <span class="kn">import</span> <span class="p">(</span><span class="n">select_y</span><span class="p">,</span> <span class="n">select_tax_order</span><span class="p">,</span> <span class="n">select_X</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">mirzai.data.transform</span> <span class="kn">import</span> <span class="p">(</span><span class="n">log_transform_y</span><span class="p">,</span> <span class="n">CO2_REGION</span><span class="p">)</span>
 
@@ -79,6 +84,7 @@ nb_path: "nbs/11_paper.plsr.train_eval.ipynb"
 
 <span class="c1"># Data science stack</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -475,6 +481,186 @@ Std:  {&#39;rpd&#39;: 0.030918016184291353, &#39;rpiq&#39;: 0.09138785317139653,
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Train-single-model-&amp;-predict">Train single model &amp; predict<a class="anchor-link" href="#Train-single-model-&amp;-predict"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Train/test-split">Train/test split<a class="anchor-link" href="#Train/test-split"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Configure">Configure<a class="anchor-link" href="#Configure"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pipeline_params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;derivative&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;window_length&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s1">&#39;polyorder&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;deriv&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+    <span class="s1">&#39;dropper&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;regions&#39;</span><span class="p">:</span> <span class="n">CO2_REGION</span><span class="p">},</span>
+    <span class="s1">&#39;model&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Train">Train<a class="anchor-link" href="#Train"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">PLS_model</span><span class="p">(</span><span class="n">X_names</span><span class="p">,</span> <span class="n">pipeline_params</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">((</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;mirzai.training.plsr.PLS_model at 0x127d118e0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Predict">Predict<a class="anchor-link" href="#Predict"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_hat</span><span class="p">,</span> <span class="n">y_true</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">((</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">y_hat</span><span class="p">,</span> <span class="n">y_true</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[-0.44781786, -0.66147777],
+       [-0.05058517, -0.02247219],
+       [-0.516228  , -0.6400625 ],
+       [-0.23475745, -0.47253728],
+       [-0.42196635, -0.31477856],
+       [-0.49249547, -0.47265796],
+       [-0.72118772, -0.85788691],
+       [-0.31804094, -0.44573344],
+       [ 0.15728254,  0.05127812],
+       [-0.10806863, -0.00893713]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dest_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./files/dumps&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dest_dir</span><span class="o">/</span><span class="s1">&#39;predicted_true_plsr.pickle&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> 
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">((</span><span class="n">y_hat</span><span class="p">,</span> <span class="n">y_true</span><span class="p">),</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 

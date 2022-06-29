@@ -18,7 +18,7 @@
       "5. PLSR vs. CNN figures": {
         "5.1 Learning curves": "/paper.figures.learning_curves.html",
         "5.2 Validation curves": "/paper.figures.validation_curves.html",
-        "5.3 Observed vs. predicted scatterplots": "/placeholder.html",
+        "5.3 Observed vs. predicted scatterplots": "/paper.figures.observed_vs_predicted.html",
         "5.4 Global vs. local modelling": "/paper.figures.global_vs_local.html"
       },
       "6. Interpretability": {

@@ -84,7 +84,7 @@ class PLS_model():
 
     def predict(self, data):
         X, y = data
-        return self.model.predict(X)
+        return (self.model.predict(X), y)
 
     def eval(self, data, is_log=True):
         X, y = data

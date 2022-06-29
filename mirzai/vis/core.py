@@ -27,7 +27,6 @@ DEFAULT_STYLE = {
     'axes.spines.left': False,
     'axes.spines.right': False,
     'axes.spines.top': False,
-    'axes.linewidth': 0.5,
     'axes.grid': True,
 
     'grid.color': 'black',

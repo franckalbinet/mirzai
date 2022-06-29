@@ -53,7 +53,7 @@ entries:
           url: /paper.figures.validation_curves.html
         - output: web,pdf
           title: 5.3 Observed vs. predicted scatterplots
-          url: /placeholder.html
+          url: /paper.figures.observed_vs_predicted.html
         - output: web,pdf
           title: 5.4 Global vs. local modelling
           url: /paper.figures.global_vs_local.html

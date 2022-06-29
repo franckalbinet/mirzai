@@ -69,18 +69,28 @@ nb_path: "nbs/17_paper.cnn.train_eval.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">mirzai.data.loading</span> <span class="kn">import</span> <span class="n">load_kssl</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+
+<span class="c1"># mirzai utilities</span>
+<span class="kn">from</span> <span class="nn">mirzai.data.loading</span> <span class="kn">import</span> <span class="n">load_kssl</span>
 <span class="kn">from</span> <span class="nn">mirzai.data.selection</span> <span class="kn">import</span> <span class="p">(</span><span class="n">select_y</span><span class="p">,</span> <span class="n">select_tax_order</span><span class="p">,</span> <span class="n">select_X</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">mirzai.data.transform</span> <span class="kn">import</span> <span class="n">log_transform_y</span>
-<span class="kn">from</span> <span class="nn">mirzai.training.cnn</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Model</span><span class="p">,</span> <span class="n">Evaluator</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">mirzai.training.cnn</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Model</span><span class="p">,</span> <span class="n">Evaluator</span><span class="p">,</span> <span class="n">Learner</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">mirzai.data.torch</span> <span class="kn">import</span> <span class="n">DataLoaders</span><span class="p">,</span> <span class="n">SNV_transform</span>
 
 <span class="kn">from</span> <span class="nn">fastcore.transform</span> <span class="kn">import</span> <span class="n">compose</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
 <span class="c1"># Data science stack</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Deep Learning stack</span>
 <span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch.optim</span> <span class="kn">import</span> <span class="n">Adam</span>
+<span class="kn">from</span> <span class="nn">torch.nn</span> <span class="kn">import</span> <span class="n">MSELoss</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -120,50 +130,6 @@ nb_path: "nbs/17_paper.cnn.train_eval.ipynb"
 </pre></div>
 
     </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;X shape: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;y shape: </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Wavenumbers:</span><span class="se">\n</span><span class="s1"> </span><span class="si">{</span><span class="n">X_names</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;depth_order (first 3 rows):</span><span class="se">\n</span><span class="s1"> </span><span class="si">{</span><span class="n">depth_order</span><span class="p">[:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Taxonomic order lookup:</span><span class="se">\n</span><span class="s1"> </span><span class="si">{</span><span class="n">tax_lookup</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>X shape: (40132, 1764)
-y shape: (40132,)
-Wavenumbers:
- [3999 3997 3995 ...  603  601  599]
-depth_order (first 3 rows):
- [[43.  2.]
- [ 0.  0.]
- [ 0.  1.]]
-Taxonomic order lookup:
- {&#39;alfisols&#39;: 0, &#39;mollisols&#39;: 1, &#39;inceptisols&#39;: 2, &#39;entisols&#39;: 3, &#39;spodosols&#39;: 4, &#39;undefined&#39;: 5, &#39;ultisols&#39;: 6, &#39;andisols&#39;: 7, &#39;histosols&#39;: 8, &#39;oxisols&#39;: 9, &#39;vertisols&#39;: 10, &#39;aridisols&#39;: 11, &#39;gelisols&#39;: 12}
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -558,6 +524,189 @@ Std:  {&#39;rpd&#39;: 0.20076352, &#39;rpiq&#39;: 0.22369619705290195, &#39;r2&#
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Load-trained-model-&amp;-predict">Load trained model &amp; predict<a class="anchor-link" href="#Load-trained-model-&amp;-predict"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Prepare-data-loaders/generators">Prepare data loaders/generators<a class="anchor-link" href="#Prepare-data-loaders/generators"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">data</span>
+<span class="n">dls</span> <span class="o">=</span> <span class="n">DataLoaders</span><span class="p">(((</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)),</span> <span class="n">transform</span><span class="o">=</span><span class="n">SNV_transform</span><span class="p">())</span>
+<span class="n">training_generator</span><span class="p">,</span> <span class="n">test_generator</span> <span class="o">=</span> <span class="n">dls</span><span class="o">.</span><span class="n">loaders</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Load-pre-trained-CNN">Load pre-trained CNN<a class="anchor-link" href="#Load-pre-trained-CNN"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">src_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./files/models&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">out_channel</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;cpu&#39;</span><span class="p">:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">src_dir</span><span class="o">/</span><span class="s1">&#39;model-50-epochs-02-03-2022.pt&#39;</span><span class="p">,</span> <span class="n">map_location</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">src_dir</span><span class="o">/</span><span class="s1">&#39;model-50-epochs-02-03-2022.pt&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Create-Learner">Create Learner<a class="anchor-link" href="#Create-Learner"> </a></h3><p>Instantiate a Learner &amp; link it to the trained model.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">criterion</span> <span class="o">=</span> <span class="n">MSELoss</span><span class="p">()</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
+<span class="n">learner</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+<span class="n">learner</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Runtime is: cpu
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Predict">Predict<a class="anchor-link" href="#Predict"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ys_hat</span><span class="p">,</span> <span class="n">y_true</span> <span class="o">=</span> <span class="n">learner</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_generator</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">ys_hat</span><span class="p">,</span> <span class="n">y_true</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[-0.6277635 , -0.66147774],
+       [-0.08225732, -0.02247219],
+       [-0.6254065 , -0.6400625 ],
+       ...,
+       [-0.4738915 , -0.64066494],
+       [-0.52610576, -0.75764966],
+       [-0.57999414, -0.4618278 ]], dtype=float32)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dest_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./files/dumps&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dest_dir</span><span class="o">/</span><span class="s1">&#39;predicted_true_cnn.pickle&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> 
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">((</span><span class="n">ys_hat</span><span class="p">,</span> <span class="n">y_true</span><span class="p">),</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
