@@ -52,6 +52,6 @@ modules = ["core.py",
 
 doc_url = "https://franckalbinet.github.io/mirzai/"
 
-git_url = "https://github.com/franckalbinet/mirzai/tree/{branch}/"
+git_url = "https://github.com/franckalbinet/mirzai/tree/master/"
 
 def custom_doc_links(name): return None
