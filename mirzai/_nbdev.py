@@ -2,8 +2,7 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"say_hello": "00_core.ipynb",
-         "load_kssl": "01_data.loading.ipynb",
+index = {"load_kssl": "01_data.loading.ipynb",
          "PRIMARY_COLOR": "03_vis.core.ipynb",
          "ACCENT_COLOR": "03_vis.core.ipynb",
          "DEFAULT_STYLE": "03_vis.core.ipynb",
@@ -40,8 +39,7 @@ index = {"say_hello": "00_core.ipynb",
          "SNV_transform": "13_data.torch.ipynb",
          "Noop": "13_data.torch.ipynb"}
 
-modules = ["core.py",
-           "data/loading.py",
+modules = ["data/loading.py",
            "vis/core.py",
            "data/selection.py",
            "data/transform.py",

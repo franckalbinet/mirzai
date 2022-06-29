@@ -77,7 +77,33 @@ dependencies:
 
 ### In Google Colab
 
-...
+Google Colab has been used to perform the experiments described in the above mentioned paper. The main advantage of Colab is to give access to a GPU (Graphical Processing Unit) which allows to train Deep Learning model in a fair amount of time. 
+> *Please refer to [Colab FAQ](https://research.google.com/colaboratory/faq.html) for further information.*
+Each notebook listed above includes a <img src="./images/colab-link.png" style="display: inline; max-width: 120px" /> link to load it in the Google Colab environment. When clicking on those links, the notebook will get loaded in Google Colab.
+
+Then, once open in Colab, you will need:
+
+1. To mount Google drive to access the data uploaded
+2. To install the `mirzai` Python package
+
+These two steps are already included on top of each notebook and will be executed if on Colab:
+
+```
+if 'google.colab' in str(get_ipython()):
+    from google.colab import drive
+    drive.mount('/content/drive',  force_remount=False)
+    !pip install mirzai
+```
+
+To locate the Google Drive folder where you uploaded the data, follow the 3 steps shown below:
+    
+1. Click the "Files" icon in the Colab left panel then click on "MyDrive"
+2. Navigate to the directory containing the data then click on the " 3 vertical dots" icon 
+3. Click on "Copy path" to copy the full path (for instance `/content/drive/MyDrive/research/predict-k-mirs-dl/data`)
+
+<img src="nbs/images/mounting-drive.png" style="display: inline; max-width: 800px"> 
+
+Last, when a GPU is required (e.g when training the Convolutional Neural Network or computing the GradientShap values), change runtime type in `Colab` top menu: Runtime &#9654; Change runtime type &#9654; and select `GPU` in the "Hardware accelerator" select box.
 
 ## Acknowledgements
 

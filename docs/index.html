@@ -163,7 +163,47 @@ dependencies:
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>...</p>
+<p>Google Colab has been used to perform the experiments described in the above mentioned paper. The main advantage of Colab is to give access to a GPU (Graphical Processing Unit) which allows to train Deep Learning model in a fair amount of time.</p>
+<blockquote><p><em>Please refer to <a href="https://research.google.com/colaboratory/faq.html">Colab FAQ</a> for further information.</em>
+Each notebook listed above includes a <img src="./images/colab-link.png" style="display: inline; max-width: 120px" /> link to load it in the Google Colab environment. When clicking on those links, the notebook will get loaded in Google Colab.</p>
+</blockquote>
+<p>Then, once open in Colab, you will need:</p>
+<ol>
+<li>To mount Google drive to access the data uploaded</li>
+<li>To install the <code>mirzai</code> Python package</li>
+</ol>
+<p>These two steps are already included on top of each notebook and will be executed if on Colab:</p>
+
+<pre><code>if 'google.colab' in str(get_ipython()):
+    from google.colab import drive
+    drive.mount('/content/drive',  force_remount=False)
+    !pip install mirzai</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To locate the Google Drive folder where you uploaded the data, follow the 3 steps shown below:</p>
+<ol>
+<li>Click the "Files" icon in the Colab left panel then click on "MyDrive"</li>
+<li>Navigate to the directory containing the data then click on the " 3 vertical dots" icon </li>
+<li>Click on "Copy path" to copy the full path (for instance <code>/content/drive/MyDrive/research/predict-k-mirs-dl/data</code>)</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>{% include image.html style="display: inline; max-width: 800px" file="/mirzai/./images/mounting-drive.png" %}</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Last, when a GPU is required (e.g when training the Convolutional Neural Network or computing the GradientShap values), change runtime type in <code>Colab</code> top menu: Runtime &#9654; Change runtime type &#9654; and select <code>GPU</code> in the "Hardware accelerator" select box.</p>
 
 </div>
 </div>
