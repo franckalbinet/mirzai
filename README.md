@@ -1,11 +1,10 @@
 # mirzai
-> Making the research: "Prediction of Exchangeable Potassium in Soil through Mid-Infrared Spectroscopy and Deep Learning: from Prediction to Explainability, Albinet et al., 2022" reproducible. 
+> Making the following researchp paper: "Prediction of Exchangeable Potassium in Soil through Mid-Infrared Spectroscopy and Deep Learning: from Prediction to Explainability, Albinet et al., 2022" reproducible. 
 
 
-Making the following **research paper reproducible**:
-> "Prediction of Exchangeable Potassium in Soil through Mid-Infrared Spectroscopy and Deep Learning:from Prediction to Explainability, Albinet et al., 2022" 
-
-[Link to paper (upon acceptance)](./)
+To get access to:
+* [the paper (upon acceptance)](no-link)
+* Documentation: [https://fr.anckalbi.net/mirzai/](https://fr.anckalbi.net/mirzai/)
 
 ## Paper with code
 
