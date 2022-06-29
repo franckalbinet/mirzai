@@ -5,7 +5,7 @@
 Making the following **research paper reproducible**:
 > "Prediction of Exchangeable Potassium in Soil through Mid-Infrared Spectroscopy and Deep Learning:from Prediction to Explainability, Albinet et al., 2022" 
 
-Link ... (upon acceptance)
+[Link to paper (upon acceptance)](./)
 
 ## Paper with code
 
@@ -35,20 +35,45 @@ Link ... (upon acceptance)
     * [GradientShap values (Fig. 8) - WIP)](placeholder.html)
     * [GradientShap values correlation (Fig. 9)](paper.interpretation.gradshap_corr)
 
-## Install
-
-`pip install mirzai`
-
 ## Setup
 
 ### Getting the data
 
 A zipped archive of the data used in this study are available for download at the following link: [https://drive.google.com/file/d/1ozHZ8KHZeuaiv8lTycxe2-yo27BhFnUt/view?usp=sharing](https://drive.google.com/file/d/1ozHZ8KHZeuaiv8lTycxe2-yo27BhFnUt/view?usp=sharing)
 
-
 ### In a local environment
 
-The preferred way it to use [Mamba](https://mamba.readthedocs.io)
+The preferred way it to use [Mamba](https://mamba.readthedocs.io). Mamba is a fast, robust, and cross-platform package manager.
+
+To install the required dependency and proper Python version:
+
+* Clone `git clone git@github.com:franckalbinet/mirzai.git` or download the [https://github.com/franckalbinet/mirzai](https://github.com/franckalbinet/mirzai) into your local environement
+* In `mirzai/` root folder, execute the following Mamba command `mamba env create -f environment.yml`
+
+Here below the content of `mirzai/environment.yml` file listing required Python version and packages:
+```
+name: mirzai
+channels:
+  - conda-forge
+  - fastchan
+  - pytorch
+dependencies:
+  - python=3.8
+  - nbdev
+  - jupyterlab
+  - numpy
+  - scipy
+  - matplotlib=3.5.1
+  - scikit-learn
+  - pytorch
+  - torchvision=0.12.0
+  - tqdm
+  - captum
+```
+
+* Then activate the Python environement generated: `mamba activate mirzai`
+
+* And finally launch `jupyter notebook`
 
 ### In Google Colab
 

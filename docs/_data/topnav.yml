@@ -2,7 +2,7 @@ topnav:
 - title: Topnav
   items:
     - title: github
-      external_url: https://github.com/franckalbinet/mirzai/tree/{branch}/
+      external_url: https://github.com/franckalbinet/mirzai/tree/master/
 
 #Topnav dropdowns
 topnav_dropdowns:

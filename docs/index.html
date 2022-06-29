@@ -40,7 +40,7 @@ nb_path: "nbs/index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Link ... (upon acceptance)</p>
+<p><a href="./">Link to paper (upon acceptance)</a></p>
 
 </div>
 </div>
@@ -95,19 +95,6 @@ nb_path: "nbs/index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Install">Install<a class="anchor-link" href="#Install"> </a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><code>pip install mirzai</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Setup">Setup<a class="anchor-link" href="#Setup"> </a></h2>
 </div>
 </div>
@@ -133,7 +120,37 @@ nb_path: "nbs/index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The preferred way it to use <a href="https://mamba.readthedocs.io">Mamba</a></p>
+<p>The preferred way it to use <a href="https://mamba.readthedocs.io">Mamba</a>. Mamba is a fast, robust, and cross-platform package manager.</p>
+<p>To install the required dependency and proper Python version:</p>
+<ul>
+<li>Clone <code>git clone git@github.com:franckalbinet/mirzai.git</code> or download the <a href="https://github.com/franckalbinet/mirzai">https://github.com/franckalbinet/mirzai</a> into your local environement</li>
+<li>In <code>mirzai/</code> root folder, execute the following Mamba command <code>mamba env create -f environment.yml</code></li>
+</ul>
+<p>Here below the content of <code>mirzai/environment.yml</code> file listing required Python version and packages:</p>
+
+<pre><code>name: mirzai
+channels:
+  - conda-forge
+  - fastchan
+  - pytorch
+dependencies:
+  - python=3.8
+  - nbdev
+  - jupyterlab
+  - numpy
+  - scipy
+  - matplotlib=3.5.1
+  - scikit-learn
+  - pytorch
+  - torchvision=0.12.0
+  - tqdm
+  - captum</code></pre>
+<ul>
+<li><p>Then activate the Python environement generated: <code>mamba activate mirzai</code></p>
+</li>
+<li><p>And finally launch <code>jupyter notebook</code></p>
+</li>
+</ul>
 
 </div>
 </div>
