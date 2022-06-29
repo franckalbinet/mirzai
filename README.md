@@ -33,7 +33,7 @@ Link ... (upon acceptance)
 
 6. Interpretability     
     * [GradientShap values (Fig. 8) - WIP)](placeholder.html)
-    * [GradientShap values correlation (Fig. 9) - WIP](placeholder.html)
+    * [GradientShap values correlation (Fig. 9)](paper.interpretation.gradshap_corr)
 
 ## Install
 

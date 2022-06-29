@@ -65,7 +65,7 @@ entries:
           url: /placeholder.html
         - output: web,pdf
           title: 6.2 GradientShap values correlation
-          url: /placeholder.html
+          url: /paper.interpretation.gradshap_corr.html
         title: 6. Interpretability
     output: web
     title: Paper with code

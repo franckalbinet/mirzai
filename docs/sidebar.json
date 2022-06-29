@@ -23,7 +23,7 @@
       },
       "6. Interpretability": {
         "6.1 GradientShap values": "/placeholder.html",
-        "6.2 GradientShap values correlation": "/placeholder.html"
+        "6.2 GradientShap values correlation": "/paper.interpretation.gradshap_corr.html"
       }
     }
   },
