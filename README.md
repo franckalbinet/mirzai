@@ -31,8 +31,8 @@ Get access to:
     * [Global vs. local modelling (Fig. 7)](paper.figures.global_vs_local.html)
 
 6. Interpretability     
-    * [GradientShap values (Fig. 8) - WIP)](placeholder.html)
-    * [GradientShap values correlation (Fig. 9)](paper.interpretation.gradshap_corr)
+    * [GradientShap values (Fig. 8) - WIP)](paper.interpretation.gradshap.html)
+    * [GradientShap values correlation (Fig. 9)](paper.interpretation.gradshap_corr.html)
 
 ## Setup
 

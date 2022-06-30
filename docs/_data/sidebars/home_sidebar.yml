@@ -62,7 +62,7 @@ entries:
         subfolderitems:
         - output: web,pdf
           title: 6.1 GradientShap values
-          url: /placeholder.html
+          url: /paper.interpretation.gradshap.html
         - output: web,pdf
           title: 6.2 GradientShap values correlation
           url: /paper.interpretation.gradshap_corr.html
