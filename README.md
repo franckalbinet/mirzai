@@ -31,14 +31,15 @@ Get access to:
     * [Global vs. local modelling (Fig. 7)](paper.figures.global_vs_local.html)
 
 6. Interpretability     
-    * [GradientShap values (Fig. 8) - WIP)](paper.interpretation.gradshap.html)
+    * [GradientShap values (Fig. 8))](paper.interpretation.gradshap.html)
     * [GradientShap values correlation (Fig. 9)](paper.interpretation.gradshap_corr.html)
 
 ## Setup
 
 ### Getting the data
 
-A zipped archive of the data used in this study are available for download at the following link: [https://drive.google.com/file/d/1ozHZ8KHZeuaiv8lTycxe2-yo27BhFnUt/view?usp=sharing](https://drive.google.com/file/d/1ozHZ8KHZeuaiv8lTycxe2-yo27BhFnUt/view?usp=sharing)
+A zipped archive of the data used in this study are available for download at the following link: 
+[https://drive.google.com/drive/folders/1kwOm6m2bJRZawiFDooFyD9YQB-fRGluo?usp=sharing](https://drive.google.com/drive/folders/1kwOm6m2bJRZawiFDooFyD9YQB-fRGluo?usp=sharing)
 
 ### In a local environment
 
