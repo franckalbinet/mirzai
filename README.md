@@ -39,7 +39,7 @@ Get access to:
 ### Getting the data
 
 A zipped archive of the data used in this study are available for download at the following link: 
-[https://drive.google.com/drive/folders/1kwOm6m2bJRZawiFDooFyD9YQB-fRGluo?usp=sharing](https://drive.google.com/drive/folders/1kwOm6m2bJRZawiFDooFyD9YQB-fRGluo?usp=sharing)
+[https://drive.google.com/drive/folders/1BA8uwrg5PPx0l92AmTF2eeI4RcYQa4WN?usp=sharing](https://drive.google.com/drive/folders/1BA8uwrg5PPx0l92AmTF2eeI4RcYQa4WN?usp=sharing)
 
 ### In a local environment
 
