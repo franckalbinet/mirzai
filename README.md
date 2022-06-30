@@ -1,10 +1,10 @@
 # mirzai
-> Making the following researchp paper: "Prediction of Exchangeable Potassium in Soil through Mid-Infrared Spectroscopy and Deep Learning: from Prediction to Explainability, Albinet et al., 2022" reproducible. 
+> Making the following research paper: "Prediction of Exchangeable Potassium in Soil through Mid-Infrared Spectroscopy and Deep Learning: from Prediction to Explainability, Albinet et al., 2022" reproducible. 
 
 
-To get access to:
-* [the paper (upon acceptance)](no-link)
-* Documentation: [https://fr.anckalbi.net/mirzai/](https://fr.anckalbi.net/mirzai/)
+Get access to:
+* scientific paper: [(upon acceptance)](no-link)
+* and documentation: [https://fr.anckalbi.net/mirzai/](https://fr.anckalbi.net/mirzai/)
 
 ## Paper with code
 
@@ -106,10 +106,10 @@ Last, when a GPU is required (e.g when training the Convolutional Neural Network
 
 ## Acknowledgements
 
-*This work was carried out in the context of the IAEA funded Coordinated Research Project (CRP D1.50.19) titled [“Remediation of Radioactive Contaminated Agricultural Land”](https://www.iaea.org/projects/crp/d15019), under IAEA Technical Contract n°23685. 
+*This work was carried out in the context of the IAEA funded Coordinated Research Project (CRP D1.50.19) titled [“Remediation of Radioactive Contaminated Agricultural Land”](https://www.iaea.org/projects/crp/d15019), under IAEA Technical Contract n°23685.* 
 
-We also thank Richard Ferguson from Kellogg Soil Survey Laboratory for providing access to the USDA MIR soil spectra library and the r equired training sessions for its operation.*
+*We also thank Richard Ferguson from Kellogg Soil Survey Laboratory for providing access to the USDA MIR soil spectra library and the r equired training sessions for its operation.*
 
 ## Others
 
-The name `mirzai` comes from Mid-InfraRed Spectroscopy with AI but also to pay tribute to Nino Ferrer's song "Mirza": https://www.youtube.com/watch?v=5PN2yfuzgQY
+The name `mirzai` comes from Mid-InfraRed Spectroscopy with AI but also is a way to pay tribute to Nino Ferrer's song "Mirza": https://www.youtube.com/watch?v=5PN2yfuzgQY
