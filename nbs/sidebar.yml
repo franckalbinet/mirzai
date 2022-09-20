@@ -1,0 +1,15 @@
+website:
+  sidebar:
+    contents:
+      - index.ipynb
+      - 00_core.ipynb
+      - section: api
+        contents:
+          - section: data
+            contents:
+              - api/data/loading.ipynb
+      - section: api
+        contents:
+          - section: data
+            contents:
+              - api/data/selection.ipynb
