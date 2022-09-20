@@ -1,15 +1,12 @@
 website:
   sidebar:
     contents:
-      - index.ipynb
-      - 00_core.ipynb
-      - section: api
+      - section: "API"
         contents:
-          - section: data
-            contents:
-              - api/data/loading.ipynb
-      - section: api
-        contents:
-          - section: data
-            contents:
-              - api/data/selection.ipynb
+        - section: "Data"
+          contents:
+          - text: "Loading"
+            file: api/data/data.loading.html
+          - text: "Selection"
+            file: api/data/data.selection.html
+
