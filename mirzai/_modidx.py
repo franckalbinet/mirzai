@@ -5,4 +5,10 @@ d = { 'settings': { 'branch': 'main',
                 'doc_host': 'https://franckalbinet.github.io',
                 'git_url': 'https://github.com/franckalbinet/mirzai/',
                 'lib_path': 'mirzai'},
-  'syms': {'mirzai.data.loading': {'mirzai.data.loading.load_kssl': ('api/data/loading.html#load_kssl', 'mirzai/data/loading.py')}}}
+  'syms': { 'mirzai.data.loading': {'mirzai.data.loading.load_kssl': ('api/data/loading.html#load_kssl', 'mirzai/data/loading.py')},
+            'mirzai.data.selection': { 'mirzai.data.selection.get_y_by_order': ( 'api/data/selection.html#get_y_by_order',
+                                                                                 'mirzai/data/selection.py'),
+                                       'mirzai.data.selection.select_X': ('api/data/selection.html#select_x', 'mirzai/data/selection.py'),
+                                       'mirzai.data.selection.select_tax_order': ( 'api/data/selection.html#select_tax_order',
+                                                                                   'mirzai/data/selection.py'),
+                                       'mirzai.data.selection.select_y': ('api/data/selection.html#select_y', 'mirzai/data/selection.py')}}}
