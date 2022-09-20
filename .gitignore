@@ -2,6 +2,8 @@ _docs/
 _data
 dumps/
 _proc/
+_site/
+_docs/
 
 *.bak
 .gitattributes
