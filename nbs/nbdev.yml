@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "mirzai"
+  site-url: "https://fr.anckalbi.net/mirzai"
+  description: "TBD"
+  repo-branch: master
+  repo-url: "https://github.com/franckalbinet/mirzai"
