@@ -15,13 +15,3 @@ pip install mirzai
 ## How to use
 
 Fill me in please! Don’t forget code examples:
-
-``` python
-from mirzai.core import say_hello
-```
-
-``` python
-say_hello('Franck')
-```
-
-    'Hello Franck!'
