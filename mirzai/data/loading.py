@@ -4,7 +4,6 @@
 __all__ = ['load_kssl']
 
 # %% ../../nbs/api/data/loading.ipynb 3
-#nbdev_comment from __future__ import annotations
 from pathlib import Path
 import pickle
 import numpy as np
