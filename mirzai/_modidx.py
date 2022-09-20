@@ -34,4 +34,5 @@ d = { 'settings': { 'allowed_cell_metadata_keys': '',
                 'tst_flags': 'notest',
                 'user': 'franckalbinet',
                 'version': '0.0.1'},
-  'syms': {'mirzai.core': {'mirzai.core.foo': 'https://franckalbinet.github.io/mirzai/core.html#foo'}}}
+  'syms': { 'mirzai.core': { 'mirzai.core.foo': 'https://franckalbinet.github.io/mirzai/core.html#foo',
+                             'mirzai.core.say_hello': 'https://franckalbinet.github.io/mirzai/core.html#say_hello'}}}
