@@ -6,4 +6,5 @@ d = { 'settings': { 'branch': 'main',
                 'git_url': 'https://github.com/franckalbinet/mirzai/',
                 'lib_path': 'mirzai'},
   'syms': { 'mirzai.core': { 'mirzai.core.foo': ('core.html#foo', 'mirzai/core.py'),
-                             'mirzai.core.say_hello': ('core.html#say_hello', 'mirzai/core.py')}}}
+                             'mirzai.core.say_hello': ('core.html#say_hello', 'mirzai/core.py')},
+            'mirzai.data.loading': {'mirzai.data.loading.load_kssl': ('data.loading.html#load_kssl', 'mirzai/data/loading.py')}}}

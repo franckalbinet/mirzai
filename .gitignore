@@ -1,4 +1,6 @@
 _docs/
+_data
+dumps/
 _proc/
 
 *.bak
