@@ -1,5 +1,8 @@
+ipynb-filters: [nbdev_filter]
+
 project:
   type: website
+  output-dir: _docs
   preview:
     port: 3000
     browser: false
@@ -12,14 +15,23 @@ format:
     toc-depth: 4
 
 website:
+  title: "mirzai"
+  site-url: "https://franckalbinet.github.io/"
+  description: "Prediction of Exchangeable Potassium in Soil through Mid-Infrared Spectroscopy and Deep Learning: from Prediction to Explainability, Albinet et al., 2022"
   twitter-card: true
   open-graph: true
+  repo-branch: main
+  repo-url: "https://github.com/franckalbinet/mirzai/"
   repo-actions: [issue]
+  navbar:
+    background: primary
+    search: true
+    right:
+      - icon: github
+        href: "https://github.com/franckalbinet/mirzai/"
   sidebar:
-    style: floating
-    contents:
-      - auto: "/*.ipynb"
-      - section: API
-        contents: api
+    style: "floating"
 
-metadata-files: [nbdev.yml]
+metadata-files: 
+  - sidebar.yml
+  - custom.yml

@@ -1,0 +1,10 @@
+website:
+  sidebar:
+    contents:
+      - index.ipynb
+      - section: API
+        contents:
+          - section: data
+            contents:
+              - api/data/loading.ipynb
+              - api/data/selection.ipynb
