@@ -12,37 +12,37 @@ paper](no-link).
 
 ## Paper with code
 
-1.  [Exploratory Data Analysis (Fig. 1)](paper.eda.html)
+1.  [Exploratory Data Analysis (Fig. 1)](paper/eda.html)
 
-2.  [Data selection and transformation](paper.select_transform.html)
+2.  [Data selection and transformation](paper/select_transform.html)
 
 3.  Baseline model (PLSR):
 
-    - [Learning curve](paper.plsr.learning_curve.html)
-    - [Training & evaluation](paper.plsr.train_eval.html)
+    - [Learning curve](paper/plsr_learning_curve.html)
+    - [Training & evaluation](paper/plsr_train_eval.html)
 
 4.  Convolutional Neural Network (CNN):
 
-    - [Learning rate finder](paper.cnn.lr_finder.html)
-    - [Learning curve](paper.cnn.learning_curve.html)
-    - [Training & evaluation](paper.cnn.train_eval.html)
+    - [Learning rate finder](paper/cnn_lr_finder.html)
+    - [Learning curve](paper/cnn_learning_curve.html)
+    - [Training & evaluation](paper/cnn_train_eval.html)
     - [Validation curve by Soil Taxonomy Orders (Fig.
-      5)](paper.cnn.validation_curve_by_tax.html)
+      5)](paper/cnn_valid_curve_by_tax.html)
 
 5.  PLSR vs. CNN figures:
 
-    - [Learning curves (Fig. 3)](paper.figures.learning_curves.html)
+    - [Learning curves (Fig. 3)](paper/figures_learning_curves.html)
     - [Observed vs. predicted scatterplots (Fig.
-      4)](paper.figures.observed_vs_predicted.html)
+      4)](paper/figures_observed_vs_predicted.html)
     - [Global vs. local modelling (Fig.
-      6)](paper.figures.global_vs_local.html)
+      6)](paper/figures_global_vs_local.html)
 
 6.  Interpretability
 
     - [GradientShap values (Fig.
-      7))](paper.interpretation.gradshap.html)
+      7))](paper/interpretation_gradshap.html)
     - [GradientShap values correlation (Fig.
-      8)](paper.interpretation.gradshap_corr.html)
+      8)](paper/interpretation_gradshap_corr.html)
 
 ## Setup
 
