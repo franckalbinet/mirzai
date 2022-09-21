@@ -8,3 +8,9 @@ website:
             contents:
               - api/data/loading.ipynb
               - api/data/selection.ipynb
+              - api/data/transform.ipynb
+              - api/data/torch.ipynb
+          - section: vis
+            contents:
+              - api/vis/core.ipynb
+                

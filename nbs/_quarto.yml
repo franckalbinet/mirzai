@@ -16,7 +16,7 @@ format:
 
 website:
   title: "mirzai"
-  site-url: "https://franckalbinet.github.io/"
+  site-url: "https://franckalbinet.github.io/mirzai/"
   description: "Prediction of Exchangeable Potassium in Soil through Mid-Infrared Spectroscopy and Deep Learning: from Prediction to Explainability, Albinet et al., 2022"
   twitter-card: true
   open-graph: true
