@@ -5,6 +5,25 @@ website:
         contents:
           - paper/01_eda.ipynb
           - paper/02_select_transform.ipynb
+          - section: "3. Baseline model (PLSR)"
+            contents:
+              - paper/03_plsr_learning_curve.ipynb
+              - paper/04_plsr_train_eval.ipynb
+          - section: "4. Convolutional Neural Network (CNN)"
+            contents:
+              - paper/13_cnn_lr_finder.ipynb
+              - paper/05_cnn_learning_curve.ipynb
+              - paper/06_cnn_train_eval.ipynb
+              - paper/07_cnn_valid_curve_by_tax.ipynb
+          - section: "5. PLSR vs. CNN figures"
+            contents:
+              - paper/08_figures_learning_curves.ipynb
+              - paper/12_figures_observed_vs_predicted.ipynb
+              - paper/09_figures_global_vs_local.ipynb
+          - section: "6. Interpretability"
+            contents:
+              - paper/10_interpretation_gradshap.ipynb
+              - paper/11_interpretation_gradshap_corr.ipynb
       - section: API
         contents:
           - section: data
