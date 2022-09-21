@@ -1,7 +1,10 @@
 website:
   sidebar:
     contents:
-      - index.ipynb
+      - section: "Paper with code"
+        contents:
+          - paper/01_eda.ipynb
+          - paper/02_select_transform.ipynb
       - section: API
         contents:
           - section: data
@@ -13,4 +16,10 @@ website:
           - section: vis
             contents:
               - api/vis/core.ipynb
+          - section: training
+            contents:
+              - api/training/core.ipynb
+              - api/training/metrics.ipynb
+              - api/training/plsr.ipynb
+              - api/training/cnn.ipynb
                 
