@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>mirzai - Mirzai</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="mirzai - Mirzai">
+<meta property="og:description" content="The mirzai Python Package, the present documentation and associated notebooks ensure the reproducibility of the above-mentioned scientific paper.">
+<meta property="og:site-name" content="mirzai">
+<meta name="twitter:title" content="mirzai - Mirzai">
+<meta name="twitter:description" content="The mirzai Python Package, the present documentation and associated notebooks ensure the reproducibility of the above-mentioned scientific paper.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">mirzai</span>
+    </a>
+  </div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Mirzai</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Paper with code</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/eda.html" class="sidebar-item-text sidebar-link">1. EDA (Exploratory Data Analysis)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/select_transform.html" class="sidebar-item-text sidebar-link">2. Select &amp; transform</a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">3. Baseline model (PLSR)</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/plsr_learning_curve.html" class="sidebar-item-text sidebar-link">3.1. Learning Curve (PLSR)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/plsr_train_eval.html" class="sidebar-item-text sidebar-link">3.2. Train &amp; evaluate (PLSR)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">4. Convolutional Neural Network (CNN)</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/cnn_lr_finder.html" class="sidebar-item-text sidebar-link">4.1 CNN learning rate finder</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/cnn_learning_curve.html" class="sidebar-item-text sidebar-link">4.2. Learning curve (CNN)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/cnn_train_eval.html" class="sidebar-item-text sidebar-link">4.3. Train &amp; evaluate (CNN)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/cnn_valid_curve_by_tax.html" class="sidebar-item-text sidebar-link">4.4. Validation curve by Soil Taxonomy Orders (CNN)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">5. PLSR vs.&nbsp;CNN figures</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/figures_learning_curves.html" class="sidebar-item-text sidebar-link">5.1. PLSR vs.&nbsp;CNN Learning Curves</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/figures_observed_vs_predicted.html" class="sidebar-item-text sidebar-link">5.2. Observed vs.&nbsp;predicted scatterplots</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/figures_global_vs_local.html" class="sidebar-item-text sidebar-link">5.3. Global vs.&nbsp;local modelling</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">6. Interpretability</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/interpretation_gradshap.html" class="sidebar-item-text sidebar-link">6.1. GradientShap values</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper/interpretation_gradshap_corr.html" class="sidebar-item-text sidebar-link">6.2. GradientShap values correlation</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">API</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">data</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api/data/loading.html" class="sidebar-item-text sidebar-link">Loading</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api/data/selection.html" class="sidebar-item-text sidebar-link">Selection</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api/data/transform.html" class="sidebar-item-text sidebar-link">Transform</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api/data/torch.html" class="sidebar-item-text sidebar-link">PyTorch data loaders and transforms</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">vis</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api/vis/core.html" class="sidebar-item-text sidebar-link">Visualization</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">training</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api/training/core.html" class="sidebar-item-text sidebar-link">Core</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api/training/metrics.html" class="sidebar-item-text sidebar-link">Metrics</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api/training/plsr.html" class="sidebar-item-text sidebar-link">Training &amp; validation (PLSR)</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./api/training/cnn.html" class="sidebar-item-text sidebar-link">Training &amp; validation (CNN)</a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#paper-with-code" id="toc-paper-with-code" class="nav-link active" data-scroll-target="#paper-with-code">Paper with code</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
+  <ul class="collapse">
+  <li><a href="#getting-the-data" id="toc-getting-the-data" class="nav-link" data-scroll-target="#getting-the-data">Getting the data</a></li>
+  <li><a href="#in-a-local-environment" id="toc-in-a-local-environment" class="nav-link" data-scroll-target="#in-a-local-environment">In a local environment</a></li>
+  <li><a href="#in-google-colab" id="toc-in-google-colab" class="nav-link" data-scroll-target="#in-google-colab">In Google Colab</a></li>
+  </ul></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others">Others</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/franckalbinet/mirzai/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Mirzai</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<blockquote class="blockquote">
+<p>Prediction of Exchangeable Potassium in Soil through Mid-Infrared Spectroscopy and Deep Learning: from Prediction to Explainability, Albinet et al., 2022</p>
+</blockquote>
+<p>The <a href="https://pypi.org/project/mirzai/">mirzai</a> Python Package, the present <a href="https://fr.anckalbi.net/mirzai/">documentation</a> and associated notebooks ensure the reproducibility of the above-mentioned <a href="https://www.sciencedirect.com/science/article/pii/S2589721722000186">scientific paper</a>.</p>
+<section id="paper-with-code" class="level2">
+<h2 class="anchored" data-anchor-id="paper-with-code">Paper with code</h2>
+<ol type="1">
+<li><p><a href="paper/eda.html">Exploratory Data Analysis (Fig. 1)</a></p></li>
+<li><p><a href="paper/select_transform.html">Data selection and transformation</a></p></li>
+<li><p>Baseline model (PLSR):</p>
+<ul>
+<li><a href="paper/plsr_learning_curve.html">Learning curve</a></li>
+<li><a href="paper/plsr_train_eval.html">Training &amp; evaluation</a></li>
+</ul></li>
+<li><p>Convolutional Neural Network (CNN):</p>
+<ul>
+<li><a href="paper/cnn_lr_finder.html">Learning rate finder</a></li>
+<li><a href="paper/cnn_learning_curve.html">Learning curve</a></li>
+<li><a href="paper/cnn_train_eval.html">Training &amp; evaluation</a></li>
+<li><a href="paper/cnn_valid_curve_by_tax.html">Validation curve by Soil Taxonomy Orders (Fig. 5)</a></li>
+</ul></li>
+<li><p>PLSR vs.&nbsp;CNN figures:</p>
+<ul>
+<li><a href="paper/figures_learning_curves.html">Learning curves (Fig. 3)</a></li>
+<li><a href="paper/figures_observed_vs_predicted.html">Observed vs.&nbsp;predicted scatterplots (Fig. 4)</a></li>
+<li><a href="paper/figures_global_vs_local.html">Global vs.&nbsp;local modelling (Fig. 6)</a></li>
+</ul></li>
+<li><p>Interpretability</p>
+<ul>
+<li><a href="paper/interpretation_gradshap.html">GradientShap values (Fig. 7))</a></li>
+<li><a href="paper/interpretation_gradshap_corr.html">GradientShap values correlation (Fig. 8)</a></li>
+</ul></li>
+</ol>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<section id="getting-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="getting-the-data">Getting the data</h3>
+<p>A zipped archive of the data used in this study are available for download at the following link: <a href="https://drive.google.com/drive/folders/1VGfrBexMPCFvoUa1VW26n-zO9v5WHeFh?usp=sharing">https://drive.google.com/drive/folders/1VGfrBexMPCFvoUa1VW26n-zO9v5WHeFh?usp=sharing</a></p>
+</section>
+<section id="in-a-local-environment" class="level3">
+<h3 class="anchored" data-anchor-id="in-a-local-environment">In a local environment</h3>
+<p>The preferred way it to use <a href="https://mamba.readthedocs.io">Mamba</a>. Mamba is a fast, robust, and cross-platform package manager.</p>
+<p>To install the required dependency and proper Python version:</p>
+<ul>
+<li>Clone <code>git clone git@github.com:franckalbinet/mirzai.git</code> or download the <a href="https://github.com/franckalbinet/mirzai">https://github.com/franckalbinet/mirzai</a> into your local environement</li>
+<li>In <code>mirzai/</code> root folder, execute the following Mamba command <code>mamba env create -f environment.yml</code></li>
+</ul>
+<p>Here below the content of <code>mirzai/environment.yml</code> file listing required Python version and packages:</p>
+<pre><code>name: mirzai
+channels:
+  - conda-forge
+  - fastchan
+  - pytorch
+dependencies:
+  - python=3.8
+  - nbdev
+  - jupyterlab
+  - numpy
+  - scipy
+  - matplotlib=3.5.1
+  - scikit-learn
+  - pytorch
+  - torchvision=0.12.0
+  - tqdm
+  - captum</code></pre>
+<ul>
+<li><p>Then activate the Python environement generated: <code>mamba activate mirzai</code></p></li>
+<li><p>And finally launch <code>jupyter notebook</code></p></li>
+</ul>
+</section>
+<section id="in-google-colab" class="level3">
+<h3 class="anchored" data-anchor-id="in-google-colab">In Google Colab</h3>
+<p>Google Colab has been used to perform the experiments described in the above mentioned paper. The main advantage of Colab is to give access to a GPU (Graphical Processing Unit) which allows to train Deep Learning model in a fair amount of time. Please refer to <a href="https://research.google.com/colaboratory/faq.html">Colab FAQ</a> for further information.</p>
+<p>Each notebook listed above includes a <img src="./images/colab-link.png" style="display: inline; width: 100px"> link to load it in the Google Colab environment. When clicking on those links, the notebook will get loaded in Google Colab.</p>
+<p>Then, once open in Colab, you will need:</p>
+<ol type="1">
+<li>To mount Google drive to access the data uploaded</li>
+<li>To install the <code>mirzai</code> Python package</li>
+</ol>
+<p>These two steps are already included on top of each notebook and will be executed if on Colab:</p>
+<pre><code>if 'google.colab' in str(get_ipython()):
+    from google.colab import drive
+    drive.mount('/content/drive',  force_remount=False)
+    !pip install mirzai</code></pre>
+<p>To locate the Google Drive folder where you uploaded the data, follow the 3 steps shown below:</p>
+<ol type="1">
+<li>Click the “Files” icon in the Colab left panel then click on “MyDrive”</li>
+<li>Navigate to the directory containing the data then click on the ” 3 vertical dots” icon</li>
+<li>Click on “Copy path” to copy the full path (for instance <code>/content/drive/MyDrive/research/predict-k-mirs-dl/data</code>)</li>
+</ol>
+<p><img src="./images/mounting-drive.png" style="display: inline; width: 800px"></p>
+<p>Last, when a GPU is required (e.g when training the Convolutional Neural Network or computing the GradientShap values), change runtime type in <code>Colab</code> top menu: Runtime ▶ Change runtime type ▶ and select <code>GPU</code> in the “Hardware accelerator” select box.</p>
+</section>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p><em>This work was carried out in the context of the IAEA funded Coordinated Research Project (CRP D1.50.19) titled <a href="https://www.iaea.org/projects/crp/d15019">“Remediation of Radioactive Contaminated Agricultural Land”</a>, under IAEA Technical Contract n°23685.</em></p>
+<p><em>We also thank Richard Ferguson from Kellogg Soil Survey Laboratory for providing access to the USDA MIR soil spectra library and the r equired training sessions for its operation.</em></p>
+</section>
+<section id="others" class="level2">
+<h2 class="anchored" data-anchor-id="others">Others</h2>
+<p>The name <code>mirzai</code> comes from Mid-InfraRed Spectroscopy with AI but also is a way to pay tribute to <a href="https://www.youtube.com/watch?v=5PN2yfuzgQY">Nino Ferrer’s song “Mirza”</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
