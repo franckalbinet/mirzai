@@ -10,7 +10,7 @@ Mirzai
 The [mirzai](https://pypi.org/project/mirzai/) Python Package, the
 present [documentation](https://fr.anckalbi.net/mirzai/) and associated
 notebooks ensure the reproducibility of the above-mentioned [scientific
-paper](no-link).
+paper](https://www.sciencedirect.com/science/article/pii/S2589721722000186).
 
 ## Paper with code
 
